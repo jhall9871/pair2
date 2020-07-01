@@ -1,0 +1,172 @@
+.App {
+  text-align: center;
+  background-color: white;
+  border: 1px solid black;
+  width: 380px;
+  min-height: 570px;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #50183d;
+}
+
+.emphasis {
+  color: #50183d;
+  font-weight: 800;
+}
+
+.welcome {
+  font-family: 'Anton', sans-serif;
+  width: 320px;
+  min-height: 569px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.continuebutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 3px solid #50183d; */
+  border-radius: 50%; 
+  background-color: #50183d;
+  width: 220px;
+  margin: 0 auto 20px auto;
+  height: 220px;
+  margin-right: 10px;
+}
+
+.continuebutton h1 {
+  font-size: 40px;
+  color: white;
+  letter-spacing: 2PX;
+}
+
+.continuebutton img {
+  height: 72px;
+  width: 72px;
+  margin-left: 10px;
+}
+
+.mode-select {
+  font-family: 'Anton', sans-serif;
+  font-size: 32px;
+  width: 380px;
+  height: 569px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: rgb(2,0,36);
+  border-radius: 10px;
+background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(80,24,61,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+.mode-select p {
+  margin: 0;
+}
+
+.mode-top {
+  background-color: rgba(255,255,255,0.5);
+  border: 3px solid #50183d;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.mode-bottom {
+  background-color: rgba(80,24,61,0.5);
+  border-radius: 20px;
+  color: white;
+  padding: 10px;
+}
+
+.menu-wine h2 {
+  font-family: "Anton", sans-serif;
+  color: #50183d;  
+}
+
+.bottle-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 10px;
+  padding: 8px;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-position: 5px 50%;
+  background-color: #50183d;
+  background-size: 200px 50px;
+}
+
+.bottle-select:active {
+  background-color: white;
+}
+
+.bordeaux {
+  background-image: url("./assets/bottle-bordeaux-silhouette-white.png");
+}
+
+.burgundy {
+  background-image: url("./assets/bottle-burgundy-silhouette-white.png");
+}
+.sparkling {
+  background-image: url("./assets/bottle-sparkling-silhouette-white.png");
+
+}
+.port {
+  background-image: url("./assets/bottle-port-silhouette-white.png");
+  background-size: 150px 50px;
+}
+
+.bottle-horizontal {
+  width: 200px;
+  margin-right: 10px;
+}
+
+.bottle-select h3 {
+  color: #50183d;
+  text-align: left;
+}
+
+.subtype-list {
+  text-align: right;
+  font-size: 10px;
+  width: 42%;
+}
+
+.recipe-rec {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.recipe-rec img {
+  display: block;
+  margin: 20px auto;
+  border-radius: 20px;
+}
+
+.recipe-image-container {
+  border-radius: 10px;
+}
+
+.recipe-info-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.menu-food {
+  background: #ccc;
+}
+
+.menu-food ul {
+  text-align: left;
+}
