@@ -1,0 +1,3 @@
+[submodule "path_to_submodule"] 
+  path = node_modules/.cache/gh-pages/git.generalassemb.ly!jhall9871!project-2-react.git
+  url = https://git.generalassemb.ly/jhall9871/project-2-react.git
