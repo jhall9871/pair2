@@ -1,11 +1,17 @@
 .App {
   text-align: center;
-  background-color: white;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  /* background-color: green; */
+  /* background-color: white;
   border: 1px solid black;
   width: 380px;
   min-height: 570px;
   margin: 10px auto;
-  border-radius: 10px;
+  border-radius: 10px; */
 }
 
 a {
@@ -19,13 +25,12 @@ a {
 }
 
 .welcome {
-  font-family: 'Anton', sans-serif;
-  width: 320px;
-  min-height: 569px;
-  margin: 0 auto;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Anton", sans-serif;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -34,7 +39,7 @@ a {
   justify-content: center;
   align-items: center;
   /* border: 3px solid #50183d; */
-  border-radius: 50%; 
+  border-radius: 50%;
   background-color: #50183d;
   width: 220px;
   margin: 0 auto 20px auto;
@@ -45,7 +50,7 @@ a {
 .continuebutton h1 {
   font-size: 40px;
   color: white;
-  letter-spacing: 2PX;
+  letter-spacing: 2px;
 }
 
 .continuebutton img {
@@ -55,17 +60,23 @@ a {
 }
 
 .mode-select {
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   font-size: 32px;
-  width: 380px;
-  height: 569px;
+  height: 100vh;
+  width: 100vw;
+  /* width: 320px;
+  height: 569px; */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background: rgb(2,0,36);
-  border-radius: 10px;
-background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(80,24,61,1) 0%, rgba(255,255,255,1) 100%);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(80, 24, 61, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 
 .mode-select p {
@@ -73,22 +84,28 @@ background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(80,24,61,1) 0%, rgba
 }
 
 .mode-top {
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   border: 3px solid #50183d;
   border-radius: 20px;
   padding: 10px;
 }
 
 .mode-bottom {
-  background-color: rgba(80,24,61,0.5);
+  background-color: rgba(80, 24, 61, 0.5);
   border-radius: 20px;
   color: white;
   padding: 10px;
 }
 
+.menu-wine {
+  height: 100vh;
+  width: 80vw;
+  overflow: scroll;
+}
+
 .menu-wine h2 {
   font-family: "Anton", sans-serif;
-  color: #50183d;  
+  color: #50183d;
 }
 
 .bottle-select {
@@ -119,7 +136,6 @@ background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(80,24,61,1) 0%, rgba
 }
 .sparkling {
   background-image: url("./assets/bottle-sparkling-silhouette-white.png");
-
 }
 .port {
   background-image: url("./assets/bottle-port-silhouette-white.png");
@@ -128,18 +144,19 @@ background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(80,24,61,1) 0%, rgba
 
 .bottle-horizontal {
   width: 200px;
-  margin-right: 10px;
 }
 
 .bottle-select h3 {
   color: #50183d;
   text-align: left;
+  flex-shrink: 0;
+  width: 200px;
 }
 
 .subtype-list {
   text-align: right;
-  font-size: 10px;
-  width: 42%;
+  font-size: 12px;
+
 }
 
 .recipe-rec {
@@ -164,6 +181,12 @@ background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(80,24,61,1) 0%, rgba
 }
 
 .menu-food {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu-food h3 {
@@ -179,9 +202,6 @@ background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(80,24,61,1) 0%, rgba
   display: grid;
   grid-template-columns: 1fr 1fr;
   overflow: hidden;
-}
-
-.factors-2 .factor:nth-child(1), .factors-2 .factor:nth-child(2) {
 }
 
 .factors-3 {
@@ -219,7 +239,6 @@ background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(80,24,61,1) 0%, rgba
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  
 }
 .factor ul li {
   margin: 0 2%;
@@ -232,11 +251,13 @@ background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(80,24,61,1) 0%, rgba
 
 .wine-rec {
   display: flex;
-  min-height: 300px;
+  height: 100vh;
+  width: 100vw;
   flex-direction: column;
   justify-content: space-around;
 }
 
-.rec-description {
+.rec-description, .rec-link {
+  margin: 10%;
   display: block;
 }

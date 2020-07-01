@@ -92,7 +92,6 @@ function App() {
 
   return (
     <div className="App">
-      <nav></nav>
       <div className="main">
         <Switch>
           <Route exact path="/" component={Welcome} />

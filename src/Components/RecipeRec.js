@@ -30,9 +30,10 @@ const RecipeRec = ({ recipeRec, factor1, factor2, selectionInfo }) => {
     } else {
       factor1withGrammar = "has " + factor1;
     }
-
+    console.log(recipeRec.hits[0])
     return (
       <div className="recipe-rec">
+        
         <div className="recipe-image-container">
           <img
             src={recipeRec.hits[0].recipe.image}
@@ -40,8 +41,9 @@ const RecipeRec = ({ recipeRec, factor1, factor2, selectionInfo }) => {
             key="0"
           />
         </div>
+        
         <div className="recipe-info-container">
-          <h3>{recipeRec.hits[0].recipe.label}</h3>
+        <a href={recipeRec.hits[0].recipe.url} target="_blank"><h3>{recipeRec.hits[0].recipe.label}</h3></a>
           <p>
             This recipe {factor1withGrammar} and {factor2withGrammar}, which
             pair well with your {selectionInfo.name.toLowerCase()}
