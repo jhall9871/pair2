@@ -164,9 +164,79 @@ background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(80,24,61,1) 0%, rgba
 }
 
 .menu-food {
-  background: #ccc;
+}
+
+.menu-food h3 {
+  font-family: "Anton", sans-serif;
+  color: #50183d;
+}
+
+.factors-1 {
+
+}
+
+.factors-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+
+.factors-2 .factor:nth-child(1), .factors-2 .factor:nth-child(2) {
+}
+
+.factors-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.factors-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.factor {
+  text-align: center;
+  color: #50183d;
+  display: flex;
+  flex-direction: column;
+}
+
+.factor h3 {
+  margin: 0;
+  font-family: "Anton", sans-serif;
+  font-size: 24px;
+}
+
+.factor img {
+  height: 150px;
+}
+.factor ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+.factor ul li {
+  margin: 0 2%;
+  font-style: italic;
 }
 
 .menu-food ul {
   text-align: left;
+}
+
+.wine-rec {
+  display: flex;
+  min-height: 300px;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.rec-description {
+  display: block;
 }

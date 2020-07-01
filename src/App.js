@@ -5,6 +5,7 @@ import ModeSelect from "./Components/ModeSelect";
 import MenuWine from "./Components/MenuWine";
 import MenuFood from "./Components/MenuFood";
 import RecipeRec from "./Components/RecipeRec";
+import WineRec from "./Components/WineRec";
 import wineTypes from "./wineTypeData";
 import foodTypes from "./foodTypeData";
 import "./App.css";
@@ -16,6 +17,7 @@ function App() {
   const [recipeRec, setRecipeRec] = useState(""); //the recipe(s) we'll recommend
   const [pairingFactor1, setPairingFactor1] = useState("");
   const [pairingFactor2, setPairingFactor2] = useState("");
+  const [winner, setWinner] = useState({});
 
   const handleWineSelect = (event) => {
     setSelectedWine(event.target.dataset.id);
@@ -23,22 +25,22 @@ function App() {
   };
 
   const handleShowMeClick = () => {
-    console.log("showme click!")
-    console.log("recipeUrl = " + recipeUrl)
+    console.log("showme click!");
+    console.log("recipeUrl = " + recipeUrl);
     //actually make the api call
     const makeApiCall = async () => {
-      console.log("Making API Call!!! No more than 5 per hour!")
+      console.log("Making API Call!!! No more than 5 per hour!");
       const response = await fetch(recipeUrl);
       const json = await response.json();
       setRecipeRec(json);
-      console.log(recipeRec)
+      console.log(recipeRec);
     };
     makeApiCall(); //exceeded my limit! wait to re-establish this.
   };
 
   //listen for a change in selectedWine, set the search url.
   useEffect(() => {
-    console.log("useEffect! Selected wine = " + selectedWine)
+    console.log("useEffect! Selected wine = " + selectedWine);
     //if a wine has been selected,
     if (selectedWine) {
       //get wine pairing array
@@ -65,7 +67,9 @@ function App() {
       // console.log(masterArray)
       // select two random indices from the master array
       let num1 = Math.floor(Math.random() * (masterArray.length / 2));
-      let num2 = Math.floor((Math.random() * (masterArray.length / 2)) + (masterArray.length / 2));
+      let num2 = Math.floor(
+        Math.random() * (masterArray.length / 2) + masterArray.length / 2
+      );
 
       // console.log(num1, num2);
       // TO DO: sparkling and rose only have one "2" apiece!
@@ -77,7 +81,9 @@ function App() {
 
       // console.log("local factor 1 = " + localPairFactor1 + " local factor 2 = " + localPairFactor2)
 
-      setRecipeUrl(`https://api.edamam.com/search?q=${localPairFactor1}%20AND%20${localPairFactor2}&app_id=d9740b8f&app_key=ef3b8ea5fd0b0bffed8b9bc13e135c91`);
+      setRecipeUrl(
+        `https://api.edamam.com/search?q=${localPairFactor1}%20AND%20${localPairFactor2}&app_id=d9740b8f&app_key=ef3b8ea5fd0b0bffed8b9bc13e135c91`
+      );
       // console.log("recipeURL = " + recipeUrl);
       setPairingFactor1(localPairFactor1);
       setPairingFactor2(localPairFactor2);
@@ -94,15 +100,40 @@ function App() {
           <Route
             path="/menuwine"
             render={(routerProps) => (
-              <MenuWine handleWineSelect={handleWineSelect} selectionInfo={selectionInfo} pairingFactor1={pairingFactor1} pairingFactor2={pairingFactor2} handleShowMeClick={handleShowMeClick} {...routerProps} />
-            )} />
+              <MenuWine
+                handleWineSelect={handleWineSelect}
+                selectionInfo={selectionInfo}
+                pairingFactor1={pairingFactor1}
+                pairingFactor2={pairingFactor2}
+                handleShowMeClick={handleShowMeClick}
+                {...routerProps}
+              />
+            )}
+          />
           <Route
             path="/reciperec"
             render={(routerProps) => (
-              <RecipeRec recipeRec={recipeRec} factor1={pairingFactor1} factor2={pairingFactor2} selectionInfo={selectionInfo} {...routerProps} />
+              <RecipeRec
+                recipeRec={recipeRec}
+                factor1={pairingFactor1}
+                factor2={pairingFactor2}
+                selectionInfo={selectionInfo}
+                {...routerProps}
+              />
             )}
           />
-          <Route path="/menufood" component={MenuFood} />
+          <Route
+            path="/winerec"
+            render={(routerProps) => (
+              <WineRec winner={winner} {...routerProps} />
+            )}
+          />
+          <Route
+            path="/menufood"
+            render={(routerProps) => (
+              <MenuFood setWinner={setWinner} {...routerProps} />
+            )}
+          />
         </Switch>
       </div>
     </div>
