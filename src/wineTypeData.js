@@ -37,7 +37,7 @@ const wineTypes = {
   },
   sparkling: {
     name: "Sparkling",
-    bottletype: "sparkling",
+    bottletype: "sparkling1",
     subtypes: ['Champagne', 'Prosecco', 'Crémant', 'Cava', 'Metodo Classico', 'Sparkling Wine', 'Sparkling Rosé'],
     pairingArray: [0,1,1,1,2,1,0,1,1,1,0,1,1,1,1,1,1,0,0,0,1,1,0,1,1,0,0,1,1,0,0,1,1,0,0]
   },

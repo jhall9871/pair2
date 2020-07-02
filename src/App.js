@@ -101,11 +101,8 @@ function App() {
 
   //When the user clicks "Show mea a recipe!" (in MenuWine),
   const handleShowMeClick = () => {
-    console.log("showme click!");
-    console.log("recipeUrl = " + recipeUrl);
     //actually make the api call
     const makeApiCall = async () => {
-      console.log("Making API Call!!! No more than 5 per minute!");
       const response = await fetch(recipeUrl);
       const json = await response.json();
       setRecipeRec(json);
