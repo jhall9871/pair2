@@ -389,6 +389,62 @@ h1, h2 {
   color: #50183d;
 }
 
+.boldred, .mediumred, .lightred, .richwhite, .lightwhite, .rose, .sparkling, .sweetwhite, .dessert {
+
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  border: 1px solid white;
+  height: 300px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.boldred {
+  background-image: url("./assets/boldredphoto.jpg");
+}
+
+.mediumred {
+  background-image: url("./assets/mediumredphoto.jpg");
+
+}
+
+.lightred {
+  background-image: url("./assets/lightredphoto.jpg");
+
+}
+
+.richwhite {
+  background-image: url("./assets/richwhitephoto.jpg");
+
+}
+
+.lightwhite {
+  background-image: url("./assets/lightwhitephoto.jpg");
+
+}
+
+.rose {
+  background-image: url("./assets/rosephoto.jpg");
+
+}
+
+.sparkling {
+  background-image: url("./assets/sparklingphoto.jpg");
+
+}
+
+.sweetwhite {
+  background-image: url("./assets/sweetwhitephoto.jpg");
+
+}
+
+.dessert {
+  background-image: url("./assets/dessertphoto.jpg");
+
+}
+
+
 .rec-link {
   font-weight: 700;
 }

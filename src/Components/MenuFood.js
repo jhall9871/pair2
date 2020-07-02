@@ -38,11 +38,12 @@ import wineTypeData from "../wineTypeData";
 // import icecream from '../assets/icecream.png'
 // import coffee from '../assets/coffee.png'
 
-const MenuFood = ({ setWinner }) => {
+const MenuFood = ({ setWinner, setPhotoContainerClass }) => {
   
   const [pairingFactors, setPairingFactors] = useState([]);
   const wineTypeArray = ['boldred', 'mediumred', 'lightred', 'rose', 'richwhite', 'lightwhite', 'sparkling', 'sweet', 'dessert']
-    //check if one of the factors is a prep method. if so, modify that pairing factor to include "is" for grammatical reasons later.
+  
+  //check if one of the factors is a prep method. if so, modify that pairing factor to include "is" for grammatical reasons later.
     const preps = [
       "Grilled or Barbecued",
       "Sauteed or Fried",
@@ -53,7 +54,7 @@ const MenuFood = ({ setWinner }) => {
   const handleSelect = (event) => {
     //value always returns a string, like "meat1"
     if (pairingFactors.length === 4) {
-      alert("That's the max number of thingies")
+      alert("That's the maximum number of factors.")
     } else {
       let arr = event.target.value.split(" ");
       let type = arr[0];
@@ -64,6 +65,7 @@ const MenuFood = ({ setWinner }) => {
     }
   };
 
+  //when Pair! is clicked, calculate the winning wine.
   const handlePairClick = () => {
       //create empty result array
     let result = [0,0,0,0,0,0,0,0,0];
@@ -76,6 +78,8 @@ const MenuFood = ({ setWinner }) => {
     }
     let winningIndex = result.indexOf(Math.max(...result));
     setWinner(wineTypeData[wineTypeArray[winningIndex]]);
+    //also set an additional state which will be used to call the correct image later
+    setPhotoContainerClass(wineTypeArray[winningIndex]);
   }
 
   //change the layout depending on the number of factors

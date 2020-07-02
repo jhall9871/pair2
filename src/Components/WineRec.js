@@ -1,12 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const WineRec = ({ winner }) => {
+const WineRec = ({ winner, photoContainerClass }) => {
     console.log(winner)
   return (
     <div className="wine-rec">
       <div className="result-container">
-          {winner.name ? <p className="rec-description">Try a <span className="emphasis">{winner.name.toLowerCase()} wine</span> such as a <br />{winner.subtypes.slice(0, -1).join(", ") + ", or " + winner.subtypes.slice(-1) + "."}</p> : <p>No result yet.</p>}
+        {winner.name ?
+          <div className="positive-result-container">
+          <div className={photoContainerClass} ></div>
+            <p className="rec-description">Try a <span className="emphasis">{winner.name.toLowerCase()} wine</span> such as a <br />{winner.subtypes.slice(0, -1).join(", ") + ", or " + winner.subtypes.slice(-1) + "."}</p></div> : <p>No result yet.</p>
+          }
         <Link to="/"><div className="rec-link">Back to Home</div></Link>
         </div>
     </div>

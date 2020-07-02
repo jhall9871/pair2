@@ -18,6 +18,7 @@ function App() {
   const [pairingFactor1, setPairingFactor1] = useState("");
   const [pairingFactor2, setPairingFactor2] = useState("");
   const [winner, setWinner] = useState({});
+  const [photoContainerClass, setPhotoContainerClass] = useState("");
 
   //When the user selects a wine (in MenuWine), update SelectedWine (its name, a string) and SelectionInfo (an object with all its info).
   const handleWineSelect = (event) => {
@@ -25,7 +26,7 @@ function App() {
     setSelectionInfo(wineTypes[event.target.dataset.id]);
   };
 
-  //listen for a change in selectedWine, set the search url.
+  //listen for a change in selectedWine (in MenuWine), set the search url.
   useEffect(() => {
     //if a wine has been selected,
     if (selectedWine) {
@@ -86,7 +87,7 @@ function App() {
           "%20" +
           localPairFactor2NoSpace.slice(index + 1);
       }
-      
+
       setRecipeUrl(
         `https://api.edamam.com/search?q=${localPairFactor1NoSpace}%20AND%20${localPairFactor2NoSpace}&app_id=d9740b8f&app_key=ef3b8ea5fd0b0bffed8b9bc13e135c91`
       );
@@ -145,13 +146,16 @@ function App() {
           <Route
             path="/winerec"
             render={(routerProps) => (
-              <WineRec winner={winner} {...routerProps} />
+              <WineRec winner={winner} photoContainerClass={photoContainerClass} {...routerProps} />
             )}
           />
           <Route
             path="/menufood"
             render={(routerProps) => (
-              <MenuFood setWinner={setWinner} {...routerProps} />
+              <MenuFood
+                setWinner={setWinner}
+                setPhotoContainerClass={setPhotoContainerClass}
+                {...routerProps} />
             )}
           />
         </Switch>
