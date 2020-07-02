@@ -154,7 +154,7 @@ const MenuFood = ({ setWinner }) => {
           <div className="factor-image-container"></div>
           <h3>{object.name}</h3>
           <ul>
-            {preps.indexOf(object.name) < 0 ? object.subtypes.map(item => <li>{item}</li>) : ""}
+            {preps.indexOf(object.name) < 0 ? object.subtypes.map((item, index) => <li key={index}>{item}</li>) : ""}
           </ul>
         </div>) : <p className="no-selection">Please select something.</p>}
       </div>

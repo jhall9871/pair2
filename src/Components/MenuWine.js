@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import WineSelectRow from "./WineSelectRow"
 import wineTypes from "../wineTypeData";
-
 
 const MenuWine = ({
   handleWineSelect,

@@ -19,25 +19,10 @@ function App() {
   const [pairingFactor2, setPairingFactor2] = useState("");
   const [winner, setWinner] = useState({});
 
+  //When the user selects a wine (in MenuWine), update SelectedWine (its name, a string) and SelectionInfo (an object with all its info).
   const handleWineSelect = (event) => {
-    console.log("event target thingy = " + event.target.dataset.id);
-    // console.log(event.target)
     setSelectedWine(event.target.dataset.id);
     setSelectionInfo(wineTypes[event.target.dataset.id]);
-  };
-
-  const handleShowMeClick = () => {
-    console.log("showme click!");
-    console.log("recipeUrl = " + recipeUrl);
-    //actually make the api call
-    const makeApiCall = async () => {
-      console.log("Making API Call!!! No more than 5 per minute!");
-      const response = await fetch(recipeUrl);
-      const json = await response.json();
-      setRecipeRec(json);
-      console.log(recipeRec);
-    };
-    makeApiCall(); //no more than 5x per minute!
   };
 
   //listen for a change in selectedWine, set the search url.
@@ -55,13 +40,10 @@ function App() {
       });
       //flatten the array of arrays into one big array
       let flatArray = foodSubtypeArray.flat();
-      // console.log("foodTypeArray = " + foodTypeArray);
-      console.log(flatArray);
-      //create an array with only foods with a value of "2" from pairing array (great pairs)
-      //for now, we're being more general, so "pork" rather than "roast, tenderloin" etc.
+      //create an array with only foods with a value of "2" from pairing array (great pairs). for now, we're being more general, so "pork" rather than "roast, tenderloin" etc.
       let masterArray = [];
-      //sparkling wines only have one 2 in their array, so in their case, we'll allow 1s.
-      if (selectedWine === "sparkling") {
+      //sparkling and rose wines only have one 2 in their array, so in their case, we'll allow 1s.
+      if (selectedWine === "sparkling" || selectedWine === "rose") {
         for (let i = 0; i < flatArray.length; i++) {
           if (pairingArray[i] >= 1) {
             masterArray.push(flatArray[i]);
@@ -75,33 +57,61 @@ function App() {
           }
         }
       }
-      // console.log(masterArray)
-      // select two random indices from the master array
+      // select two random indices from the master array. One from each half of the array. This way you don't get two kinds of meat, or two prep methods.
       let num1 = Math.floor(Math.random() * (masterArray.length / 2));
       let num2 = Math.floor(
         Math.random() * (masterArray.length / 2) + masterArray.length / 2
       );
 
-      // console.log(num1, num2);
-      // TO DO: sparkling and rose only have one "2" apiece!
-
       // make our selections based on these indices
-
       let localPairFactor1 = masterArray[num1];
       let localPairFactor2 = masterArray[num2];
 
-      // console.log("local factor 1 = " + localPairFactor1 + " local factor 2 = " + localPairFactor2)
+      //look out for spaces! Can't have those in a url. Change them to "%20"
+      let localPairFactor1NoSpace = localPairFactor1;
+      let localPairFactor2NoSpace = localPairFactor2;
 
+      if (localPairFactor1NoSpace.includes(" ")) {
+        let index = localPairFactor1NoSpace.indexOf(" ");
+        localPairFactor1NoSpace =
+          localPairFactor1NoSpace.slice(0, index) +
+          "%20" +
+          localPairFactor1NoSpace.slice(index + 1);
+      }
+
+      if (localPairFactor2NoSpace.includes(" ")) {
+        let index = localPairFactor2NoSpace.indexOf(" ");
+        localPairFactor2NoSpace =
+          localPairFactor2NoSpace.slice(0, index) +
+          "%20" +
+          localPairFactor2NoSpace.slice(index + 1);
+      }
+      
       setRecipeUrl(
-        `https://api.edamam.com/search?q=${localPairFactor1}%20AND%20${localPairFactor2}&app_id=d9740b8f&app_key=ef3b8ea5fd0b0bffed8b9bc13e135c91`
+        `https://api.edamam.com/search?q=${localPairFactor1NoSpace}%20AND%20${localPairFactor2NoSpace}&app_id=d9740b8f&app_key=ef3b8ea5fd0b0bffed8b9bc13e135c91`
       );
-      // console.log("recipeURL = " + recipeUrl);
+
+      //set pairing factor with the vanilla (including spaces) names.
       setPairingFactor1(localPairFactor1);
       setPairingFactor2(localPairFactor2);
+  
     }
   }, [selectedWine]);
 
-  // console.log("Selected wine = " + selectedWine);
+  //When the user clicks "Show mea a recipe!" (in MenuWine),
+  const handleShowMeClick = () => {
+    console.log("showme click!");
+    console.log("recipeUrl = " + recipeUrl);
+    //actually make the api call
+    const makeApiCall = async () => {
+      console.log("Making API Call!!! No more than 5 per minute!");
+      const response = await fetch(recipeUrl);
+      const json = await response.json();
+      setRecipeRec(json);
+      console.log(recipeRec);
+    };
+    makeApiCall(); //no more than 5x per minute!
+  };
 
   return (
     <div className="App">

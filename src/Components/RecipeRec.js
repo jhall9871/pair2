@@ -45,7 +45,7 @@ const RecipeRec = ({ recipeRec, factor1, factor2, selectionInfo }) => {
         </div>
         
         <div className="recipe-info-container">
-        <a href={recipeRec.hits[0].recipe.url} target="_blank"><h3>{recipeRec.hits[0].recipe.label}</h3></a>
+        <a href={recipeRec.hits[0].recipe.url} target="_blank" rel="noopener noreferrer"><h3>{recipeRec.hits[0].recipe.label}</h3></a>
           <p>
             This recipe {factor1withGrammar} {factor2withGrammar}<br />which
             pair well with your {selectionInfo.name.toLowerCase()} wine.

@@ -66,7 +66,7 @@ const foodTypes = {
       subtypes: ['onion', 'shallot', 'garlic', 'scallion'],
       pairingArray: [1,2,1,1,1,1,1,1,0]
     },
-    greenbean: {
+    "green bean": {
       subtypes: ['green bean', 'kale', 'lettuce'],
       pairingArray: [0,0,0,0,0,2,1,0,0]
     },
@@ -92,10 +92,10 @@ const foodTypes = {
     }
   },
   herbandspice: {
-    blackpepper: {
+    "black pepper": {
       pairingArray: [2,1,0,0,0,0,0,0,0]
     },
-    redpepper: {
+    "red pepper": {
       subtypes: ['ancho', 'aleppo', 'chipotle', 'chili'],
       pairingArray: [1,2,0,1,0,1,1,1,0]
     },
@@ -117,15 +117,15 @@ const foodTypes = {
     }
   },
   starch: {
-    flour: {
+    bread: {
       subtypes: ['flour', 'white rice', 'pasta', 'bread', 'tortillas'],
       pairingArray: [1,1,1,1,1,1,1,1,1]
     },
-    brownrice: {
+    quinoa: {
       subtypes: ['quinoa', 'farro', 'brown rice'],
       pairingArray: [0,0,1,1,1,0,0,2,0]
     },
-    sweetpotato: {
+    "sweet potato": {
       subtypes: ['sweet potato', 'yucca', 'taro'],
       pairingArray: [0,0,0,1,0,0,0,2,0]
     },
