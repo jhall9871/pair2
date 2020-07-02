@@ -21,10 +21,10 @@ const RecipeRec = ({ recipeRec, factor1, factor2, selectionInfo }) => {
       //second case: one is a prep method, the other is an ingredient
     } else if (!preps.includes(factor1) && preps.includes(factor2)) {
       factor1withGrammar = "has " + factor1;
-      factor2withGrammar = "is " + factor2;
+      factor2withGrammar = " and has " + factor2 + ",";
       //third case: same as second, but reversed.
     } else if (!preps.includes(factor2) && preps.includes(factor1)) {
-      factor2withGrammar = "has " + factor2;
+      factor2withGrammar = " and has " + factor2 + ",";
       factor1withGrammar = "is " + factor1;
       //fourth case: both are ingredients.
     } else {
@@ -47,10 +47,10 @@ const RecipeRec = ({ recipeRec, factor1, factor2, selectionInfo }) => {
         <div className="recipe-info-container">
         <a href={recipeRec.hits[0].recipe.url} target="_blank"><h3>{recipeRec.hits[0].recipe.label}</h3></a>
           <p>
-            This recipe {factor1withGrammar} and {factor2withGrammar}, which
-            pair well with your {selectionInfo.name.toLowerCase()}
+            This recipe {factor1withGrammar} {factor2withGrammar}<br />which
+            pair well with your {selectionInfo.name.toLowerCase()} wine.
           </p>
-          <Link to="/">Back to Home.</Link>
+          <Link to="/">Back to Home</Link>
         </div>
       </div>
     );
@@ -58,7 +58,7 @@ const RecipeRec = ({ recipeRec, factor1, factor2, selectionInfo }) => {
     return (
       <div className="recipe-rec">
         <p>Nothing yet.</p>
-        <Link to="/">Back to Home.</Link>
+        <Link to="/">Back to Home</Link>
       </div>
     );
   }

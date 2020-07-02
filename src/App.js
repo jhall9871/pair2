@@ -115,6 +115,7 @@ function App() {
               <MenuWine
                 handleWineSelect={handleWineSelect}
                 handleShowMeClick={handleShowMeClick}
+                selectionInfo={selectionInfo}
                 {...routerProps}
               />
             )}

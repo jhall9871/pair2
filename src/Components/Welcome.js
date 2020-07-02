@@ -12,7 +12,7 @@ const Welcome = () => {
         Your browser does not support the video tag.
       </video>
       <Link to="/modeselect">
-        <div className="continuebutton"><h1>Start</h1><img src={require("../assets/forwardarrowwhite.png")} alt="start button" /></div>
+        <div className="button continuebutton"><h1>Start</h1><img src={require("../assets/forwardarrowwhite.png")} alt="start button" /></div>
       </Link>
     </div>
   );

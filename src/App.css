@@ -1,21 +1,18 @@
 .App {
-  text-align: center;
   height: 100vh;
   display: flex;
-  position: relative;
   justify-content: center;
   align-items: center;
-  /* background-color: green; */
-  /* background-color: white;
-  border: 1px solid black;
-  width: 380px;
-  min-height: 570px;
-  margin: 10px auto;
-  border-radius: 10px; */
+  text-align: center;
 }
 
 a {
   text-decoration: none;
+  color: #50183d;
+}
+
+h1, h2 {
+  font-family: "Anton", sans-serif;
   color: #50183d;
 }
 
@@ -34,11 +31,10 @@ a {
   align-items: center;
 }
 
-.continuebutton, .pairbutton {
+.button {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 3px solid #50183d; */
   border-radius: 50%;
   background-color: #50183d;
   width: 220px;
@@ -57,7 +53,6 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 3px solid #50183d; */
   border-radius: 50%;
   background-color: #50183d;
   width: 120px;
@@ -75,7 +70,6 @@ a {
   height: 52px;
   width: 52px;
   margin-left: 2px;
-  
 }
 .continuebutton img {
   height: 72px;
@@ -83,64 +77,91 @@ a {
   margin-left: 10px;
 }
 
+/* Choose Wine => Recipe or Recipe => Wine */
+
 .mode-select {
   font-family: "Anton", sans-serif;
   font-size: 32px;
   height: 100vh;
   width: 100vw;
-  /* width: 320px;
-  height: 569px; */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background: rgb(2, 0, 36);
+  background: rgba(80, 24, 61, 1);
   background: linear-gradient(
     180deg,
-    rgba(2, 0, 36, 1) 0%,
     rgba(80, 24, 61, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
+    rgba(252, 216, 159, 1) 100%
   );
 }
 
-.mode-select p {
-  margin: 0;
+.mode-top, .mode-bottom {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 5px #50183d;
+}
+
+.mode-top:active, .mode-bottom:active {
+  box-shadow: none;
+  transform: translate(5px, 5px);
+
 }
 
 .mode-top {
   background-color: rgba(255, 255, 255, 0.5);
-  border: 3px solid #50183d;
-  border-radius: 20px;
-  padding: 10px;
 }
 
 .mode-bottom {
   background-color: rgba(80, 24, 61, 0.5);
-  border-radius: 20px;
+  border-radius: 50%;
   color: white;
   padding: 10px;
 }
 
+.mode-select h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 200;
+  text-align: center;
+}
+
+/* I have a wine, show me a recipe! */
+
 .menu-wine {
   height: 100vh;
-  width: 90vw;
+  width: 100vw;
   overflow: scroll;
+  background: rgba(80, 24, 61, 1);
+  background: linear-gradient(
+    180deg,
+    rgba(80, 24, 61, 1) 0%,
+    rgba(252, 216, 159, 1) 100%
+  );
 }
 
 .menu-wine h2 {
   font-family: "Anton", sans-serif;
-  color: #50183d;
+  color: white;
+  font-weight: 300;
 }
 
 .bottle-select {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 10px 10px;
+  margin: 10px 50px;
   padding: 8px;
   color: white;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 10px;
+  border: 1px solid white;
   background-repeat: no-repeat;
   background-position: 5px 50%;
   background-color: #50183d;
@@ -180,19 +201,51 @@ a {
 .subtype-list {
   text-align: right;
   font-size: 12px;
+}
 
+.current-selection {
+  font-style: italic;
+  color: #50183d;
+  margin: 2px;
+}
+
+.show-me-recipe {
+  background-color: #50183d;
+  color: white;
+  width: 300px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid white;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.show-me-recipe img {
+  height: 60px;
+  width: 60px;
 }
 
 .recipe-rec {
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+  background: rgba(252, 216, 159, 1);
+  background: linear-gradient(
+    180deg,
+    rgba(80, 24, 61, 1) 0%,
+    rgba(252, 216, 159, 1) 100%
+  );
 }
 
 .recipe-rec img {
   display: block;
   margin: 20px auto;
   border-radius: 20px;
+  border: 2px solid white;
 }
 
 .recipe-image-container {
@@ -211,11 +264,18 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: rgba(252, 216, 159, 1);
+  background: linear-gradient(
+    180deg,
+    rgba(80, 24, 61, 1) 0%,
+    rgba(252, 216, 159, 1) 100%
+  );
 }
 
 .menu-food h3 {
   font-family: "Anton", sans-serif;
   color: #50183d;
+  font-weight: 300;
 }
 
 .factors-1 {
@@ -284,7 +344,8 @@ a {
   justify-content: space-around;
 }
 
-.rec-description, .rec-link {
+.rec-description,
+.rec-link {
   margin: 10%;
   display: block;
 }

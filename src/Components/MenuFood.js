@@ -90,14 +90,10 @@ const MenuFood = ({ setWinner }) => {
     displayStyle = "factors-4";
   }
 
-  // {
-  //   Object.values(foodTypes.meat).map((item, index) => console.log(item));
-  // }
-
-
   return (
     <div className="menu-food">
-      <h3>Choose up to 4 ingredients / prep methods.</h3>
+      <h1>Choose 1-3 ingredients</h1>
+      <h1>and 0-1 prep method.</h1>
       <form>
         <select onChange={handleSelect}>
           <option value="" selected disabled hidden>Choose:</option>
@@ -152,7 +148,7 @@ const MenuFood = ({ setWinner }) => {
           </optgroup>
         </select>
       </form>
-      <h3>Selected factors:</h3>
+      <h2>Selected factors:</h2>
       <div className={displayStyle}>
         {pairingFactors[0] ? pairingFactors.map((object, index) => <div className="factor" key={index}>
           <div className="factor-image-container"></div>
@@ -163,7 +159,7 @@ const MenuFood = ({ setWinner }) => {
         </div>) : "Please select something."}
       </div>
       <Link to="/winerec" onClick={handlePairClick}>
-        <div className="pairbutton"><h1>Pair!</h1><img src={require("../assets/forwardarrowwhite.png")} alt="start button" /></div>
+        <div className="button pairbutton"><h1>Pair!</h1><img src={require("../assets/forwardarrowwhite.png")} alt="start button" /></div>
       </Link>
       {/* {winner.name ? <p>Try a <span className="emphasis">{winner.name.toLowerCase()} wine</span> such as a <br />{winner.subtypes.slice(0, -1).join(", ") + ", or " + winner.subtypes.slice(-1)}</p> : <p>No result yet.</p>} */}
     </div>

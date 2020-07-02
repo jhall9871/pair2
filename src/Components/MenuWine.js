@@ -7,6 +7,7 @@ import wineTypes from "../wineTypeData";
 const MenuWine = ({
   handleWineSelect,
   handleShowMeClick,
+  selectionInfo
 }) => {
   return (
     <div className="menu-wine">
@@ -23,9 +24,9 @@ const MenuWine = ({
           />
         )
       })}
-
+      <p className="current-selection">Current selection: {selectionInfo.name ? selectionInfo.name : "none."}</p>
       <Link to="/reciperec" onClick={handleShowMeClick}>
-        <p>Show me a recipe!</p>
+        <div className="show-me-recipe"><h3>Show me a recipe!</h3></div>
       </Link>
     </div>
   );
