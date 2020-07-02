@@ -6,7 +6,7 @@ I've been enjoying Madeline Puckette and Justin Hammack's "Wine Folly: The Essen
 The project is live, hosted on Netlify [here](https://practical-morse-7e5ebc.netlify.app/).
 
 ## Screenshots
-![](src/assets/screenshot1.jpg)![](src/assets/screenshot2.jpg)![](src/assets/screenshot3.jpg)
+![](src/assets/screenshot1.jpeg)![](src/assets/screenshot2.jpeg)![](src/assets/screenshot3.jpeg)
 
 ## Framework/tech used
 - React
