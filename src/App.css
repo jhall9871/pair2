@@ -49,28 +49,7 @@ h1, h2 {
   letter-spacing: 2px;
 }
 
-.pairbutton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background-color: #50183d;
-  width: 120px;
-  height: 120px;
-  margin: 10px auto 20px auto;
-  margin-right: 10px;
-}
 
-.pairbutton h1 {
-  font-size: 20px;
-  color: white;
-  letter-spacing: 2px;
-}
-.pairbutton img {
-  height: 52px;
-  width: 52px;
-  margin-left: 2px;
-}
 .continuebutton img {
   height: 72px;
   width: 72px;
@@ -111,7 +90,6 @@ h1, h2 {
 .mode-top:active, .mode-bottom:active {
   box-shadow: none;
   transform: translate(5px, 5px);
-
 }
 
 .mode-top {
@@ -257,6 +235,8 @@ h1, h2 {
   margin: 0 auto;
 }
 
+/* I have a recipe, help me find a wine! */
+
 .menu-food {
   width: 100vw;
   height: 100vh;
@@ -272,10 +252,19 @@ h1, h2 {
   );
 }
 
-.menu-food h3 {
+.menu-food h1 {
   font-family: "Anton", sans-serif;
   color: #50183d;
   font-weight: 300;
+  margin: 0;
+}
+
+.menu-food select {
+  background-color: #50183d; 
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+  margin-top: 20px;
 }
 
 .factors-1 {
@@ -305,9 +294,10 @@ h1, h2 {
   color: #50183d;
   display: flex;
   flex-direction: column;
-  border: 1px solid #50183d;
+  border: 3px solid #50183d;
   border-radius: 20px;
   margin: 5px;
+  padding: 10px;
 }
 
 .factor h3 {
@@ -336,16 +326,69 @@ h1, h2 {
   text-align: left;
 }
 
+.no-selection {
+  color: #50183d;
+  font-weight: 700;
+  margin-top: 0;
+}
+
+.pairbutton {
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #50183d;
+  width: 200px;
+  height: 200px;
+  margin: 10px auto 20px auto;
+  margin-right: 10px;
+  box-shadow: 5px 5px rgba(252, 216, 159, 1)
+}
+
+.pairbutton:active {
+  box-shadow: none;
+  transform: translate(5px, 5px);
+}
+
+.pairbutton h1 {
+  font-size: 40px;
+  font-weight: 300;
+  color: white;
+  letter-spacing: 2px;
+}
+.pairbutton img {
+  height: 52px;
+  width: 52px;
+  margin-left: 2px;
+}
+/* Wine recommendation page */
 .wine-rec {
   display: flex;
   height: 100vh;
   width: 100vw;
+  color: #50183d;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+  background: rgba(252, 216, 159, 1);
+  background: linear-gradient(
+    180deg,
+    rgba(80, 24, 61, 1) 0%,
+    rgba(252, 216, 159, 1) 100%);
+}
+
+.result-container {
+  width: 70%;
+  margin: 0 auto;
 }
 
 .rec-description,
 .rec-link {
   margin: 10%;
   display: block;
+  color: #50183d;
+}
+
+.rec-link {
+  font-weight: 700;
 }

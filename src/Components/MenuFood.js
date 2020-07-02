@@ -156,12 +156,11 @@ const MenuFood = ({ setWinner }) => {
           <ul>
             {preps.indexOf(object.name) < 0 ? object.subtypes.map(item => <li>{item}</li>) : ""}
           </ul>
-        </div>) : "Please select something."}
+        </div>) : <p className="no-selection">Please select something.</p>}
       </div>
       <Link to="/winerec" onClick={handlePairClick}>
-        <div className="button pairbutton"><h1>Pair!</h1><img src={require("../assets/forwardarrowwhite.png")} alt="start button" /></div>
+        <div className="button pairbutton"><h1>Pair!</h1></div>
       </Link>
-      {/* {winner.name ? <p>Try a <span className="emphasis">{winner.name.toLowerCase()} wine</span> such as a <br />{winner.subtypes.slice(0, -1).join(", ") + ", or " + winner.subtypes.slice(-1)}</p> : <p>No result yet.</p>} */}
     </div>
   );
 };
