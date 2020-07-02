@@ -39,9 +39,17 @@ import wineTypeData from "../wineTypeData";
 // import coffee from '../assets/coffee.png'
 
 const MenuFood = ({ setWinner }) => {
+  
   const [pairingFactors, setPairingFactors] = useState([]);
   const wineTypeArray = ['boldred', 'mediumred', 'lightred', 'rose', 'richwhite', 'lightwhite', 'sparkling', 'sweet', 'dessert']
-
+    //check if one of the factors is a prep method. if so, modify that pairing factor to include "is" for grammatical reasons later.
+    const preps = [
+      "Grilled or Barbecued",
+      "Sauteed or Fried",
+      "Smoked",
+      "Roasted",
+      "Steamed or Poached"
+    ];
   const handleSelect = (event) => {
     //value always returns a string, like "meat1"
     if (pairingFactors.length === 4) {
@@ -150,12 +158,12 @@ const MenuFood = ({ setWinner }) => {
           <div className="factor-image-container"></div>
           <h3>{object.name}</h3>
           <ul>
-            {object.subtypes.map(item => <li>{item}</li>)}
+            {preps.indexOf(object.name) < 0 ? object.subtypes.map(item => <li>{item}</li>) : ""}
           </ul>
         </div>) : "Please select something."}
       </div>
       <Link to="/winerec" onClick={handlePairClick}>
-        <p>Pair!</p>
+        <div className="pairbutton"><h1>Pair!</h1><img src={require("../assets/forwardarrowwhite.png")} alt="start button" /></div>
       </Link>
       {/* {winner.name ? <p>Try a <span className="emphasis">{winner.name.toLowerCase()} wine</span> such as a <br />{winner.subtypes.slice(0, -1).join(", ") + ", or " + winner.subtypes.slice(-1)}</p> : <p>No result yet.</p>} */}
     </div>

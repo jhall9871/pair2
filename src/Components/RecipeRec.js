@@ -31,6 +31,8 @@ const RecipeRec = ({ recipeRec, factor1, factor2, selectionInfo }) => {
       factor1withGrammar = "has " + factor1;
     }
     console.log(recipeRec.hits[0])
+    console.log("fac 1 w/ grammar = " + factor1withGrammar)
+    console.log("fac 2 w/ grammar = " + factor2withGrammar)
     return (
       <div className="recipe-rec">
         

@@ -6,16 +6,12 @@ import wineTypes from "../wineTypeData";
 
 const MenuWine = ({
   handleWineSelect,
-  selectionInfo,
-  pairingFactor1,
-  pairingFactor2,
   handleShowMeClick,
 }) => {
   return (
     <div className="menu-wine">
       <h2>Select a wine category:</h2>
       {Object.keys(wineTypes).map((type, index) => {
-        // console.log(wineTypes[type])
         return (
           <WineSelectRow
             handleWineSelect={handleWineSelect}
@@ -27,21 +23,6 @@ const MenuWine = ({
           />
         )
       })}
-
-      {/* <ul className="wine-menu-varietal-list">
-        {selectionInfo
-          ? selectionInfo.subtypes.map((subtype, index) => (
-              <li key={index}>{subtype}</li>
-            ))
-          : ""}
-      </ul> */}
-      {/* {pairingFactor1 ? (
-        <p>
-          Will search for recipes containing {pairingFactor1} and {pairingFactor2}
-        </p>
-      ) : (
-        ""
-      )} */}
 
       <Link to="/reciperec" onClick={handleShowMeClick}>
         <p>Show me a recipe!</p>

@@ -34,7 +34,7 @@ a {
   align-items: center;
 }
 
-.continuebutton {
+.continuebutton, .pairbutton {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,6 +53,30 @@ a {
   letter-spacing: 2px;
 }
 
+.pairbutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 3px solid #50183d; */
+  border-radius: 50%;
+  background-color: #50183d;
+  width: 120px;
+  height: 120px;
+  margin: 10px auto 20px auto;
+  margin-right: 10px;
+}
+
+.pairbutton h1 {
+  font-size: 20px;
+  color: white;
+  letter-spacing: 2px;
+}
+.pairbutton img {
+  height: 52px;
+  width: 52px;
+  margin-left: 2px;
+  
+}
 .continuebutton img {
   height: 72px;
   width: 72px;
@@ -99,7 +123,7 @@ a {
 
 .menu-wine {
   height: 100vh;
-  width: 80vw;
+  width: 90vw;
   overflow: scroll;
 }
 
@@ -195,13 +219,13 @@ a {
 }
 
 .factors-1 {
-
+  width: 60vw;
+  margin: 10px 10px;
 }
 
 .factors-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  overflow: hidden;
 }
 
 .factors-3 {
@@ -221,6 +245,9 @@ a {
   color: #50183d;
   display: flex;
   flex-direction: column;
+  border: 1px solid #50183d;
+  border-radius: 20px;
+  margin: 5px;
 }
 
 .factor h3 {

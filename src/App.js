@@ -20,6 +20,8 @@ function App() {
   const [winner, setWinner] = useState({});
 
   const handleWineSelect = (event) => {
+    console.log("event target thingy = " + event.target.dataset.id);
+    // console.log(event.target)
     setSelectedWine(event.target.dataset.id);
     setSelectionInfo(wineTypes[event.target.dataset.id]);
   };
@@ -29,18 +31,17 @@ function App() {
     console.log("recipeUrl = " + recipeUrl);
     //actually make the api call
     const makeApiCall = async () => {
-      console.log("Making API Call!!! No more than 5 per hour!");
+      console.log("Making API Call!!! No more than 5 per minute!");
       const response = await fetch(recipeUrl);
       const json = await response.json();
       setRecipeRec(json);
       console.log(recipeRec);
     };
-    makeApiCall(); //exceeded my limit! wait to re-establish this.
+    makeApiCall(); //no more than 5x per minute!
   };
 
   //listen for a change in selectedWine, set the search url.
   useEffect(() => {
-    console.log("useEffect! Selected wine = " + selectedWine);
     //if a wine has been selected,
     if (selectedWine) {
       //get wine pairing array
@@ -55,13 +56,23 @@ function App() {
       //flatten the array of arrays into one big array
       let flatArray = foodSubtypeArray.flat();
       // console.log("foodTypeArray = " + foodTypeArray);
-      // console.log(flatArray);
+      console.log(flatArray);
       //create an array with only foods with a value of "2" from pairing array (great pairs)
       //for now, we're being more general, so "pork" rather than "roast, tenderloin" etc.
       let masterArray = [];
-      for (let i = 0; i < flatArray.length; i++) {
-        if (pairingArray[i] === 2) {
-          masterArray.push(flatArray[i]);
+      //sparkling wines only have one 2 in their array, so in their case, we'll allow 1s.
+      if (selectedWine === "sparkling") {
+        for (let i = 0; i < flatArray.length; i++) {
+          if (pairingArray[i] >= 1) {
+            masterArray.push(flatArray[i]);
+          }
+        }
+        //otherwise it's gotta be 2s.
+      } else {
+        for (let i = 0; i < flatArray.length; i++) {
+          if (pairingArray[i] === 2) {
+            masterArray.push(flatArray[i]);
+          }
         }
       }
       // console.log(masterArray)
@@ -90,6 +101,8 @@ function App() {
     }
   }, [selectedWine]);
 
+  // console.log("Selected wine = " + selectedWine);
+
   return (
     <div className="App">
       <div className="main">
@@ -101,9 +114,6 @@ function App() {
             render={(routerProps) => (
               <MenuWine
                 handleWineSelect={handleWineSelect}
-                selectionInfo={selectionInfo}
-                pairingFactor1={pairingFactor1}
-                pairingFactor2={pairingFactor2}
                 handleShowMeClick={handleShowMeClick}
                 {...routerProps}
               />
