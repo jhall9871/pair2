@@ -2,41 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom" 
 import foodTypes from "../foodTypeData2";
 import wineTypeData from "../wineTypeData";
-// import cow from '../assets/cow.png'
-// import bacon from '../assets/bacon.png'
-// import pig from '../assets/pig.png'
-// import chicken from '../assets/chicken.png'
-// import clam from '../assets/clam.png'
-// import fish from '../assets/fish.png'
-// import lobster from '../assets/lobster.png'
-// import grill from '../assets/grill.png'
-// import spatula from '../assets/spatula.png'
-// import smoker from '../assets/smoker.png'
-// import oven from '../assets/oven.png'
-// import steamer from '../assets/steamer.png'
-// import cheese from '../assets/cheese.png'
-// import smellycheese from '../assets/smellycheese.png'
-// import cheese2 from '../assets/cheese2.png'
-// import onion from '../assets/onion.png'
-// import lettuce from '../assets/lettuce.png'
-// import pumpkin from '../assets/pumpkin.png'
-// import eggplant from '../assets/eggplant.png'
-// import mushroom from '../assets/mushroom.png'
-// import nut from '../assets/nut.png'
-// import bean from '../assets/bean.png'
-// import blackpepper from '../assets/blackpepper.png'
-// import pepper1 from '../assets/pepper1.png'
-// import pepper2 from '../assets/pepper2.png'
-// import herbs from '../assets/herbs.png'
-// import cinnamon from '../assets/cinnamon.png'
-// import anise from '../assets/anise.png'
-// import bread from '../assets/bread.png'
-// import quinoa from '../assets/quinoa.png'
-// import sweetpotato from '../assets/sweetpotato.png'
-// import potato from '../assets/potato.png'
-// import strawberry from '../assets/strawberry.png'
-// import icecream from '../assets/icecream.png'
-// import coffee from '../assets/coffee.png'
 
 const MenuFood = ({ setWinner, setPhotoContainerClass }) => {
   
@@ -57,6 +22,7 @@ const MenuFood = ({ setWinner, setPhotoContainerClass }) => {
       alert("That's the maximum number of factors.")
     } else {
       let arr = event.target.value.split(" ");
+
       let type = arr[0];
       let subType = arr[1];
       // console.log("type " + type + " subType " + subType);//works

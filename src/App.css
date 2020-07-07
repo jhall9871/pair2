@@ -29,6 +29,11 @@ h1, h2 {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  background: rgba(252, 216, 159, 1);
+  background: linear-gradient(
+    180deg,
+    rgba(80, 24, 61, 1) 0%,
+    rgba(252, 216, 159, 1) 100%);
 }
 
 .button {
@@ -43,8 +48,19 @@ h1, h2 {
   margin-right: 10px;
 }
 
+.continuebutton {
+  box-shadow: 5px 5px rgba(252, 216, 159, 1);
+  transition: all .2s;
+}
+
+.continuebutton:active {
+  box-shadow: none;
+  transform: translate(5px, 5px);
+}
+
 .continuebutton h1 {
   font-size: 40px;
+  font-weight: 300;
   color: white;
   letter-spacing: 2px;
 }
@@ -85,6 +101,7 @@ h1, h2 {
   justify-content: center;
   align-items: center;
   box-shadow: 5px 5px #50183d;
+  transition: all .2s;
 }
 
 .mode-top:active, .mode-bottom:active {
@@ -343,7 +360,8 @@ h1, h2 {
   height: 200px;
   margin: 10px auto 20px auto;
   margin-right: 10px;
-  box-shadow: 5px 5px rgba(252, 216, 159, 1)
+  box-shadow: 5px 5px rgba(252, 216, 159, 1);
+  transition: all .2s;
 }
 
 .pairbutton:active {
