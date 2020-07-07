@@ -194,6 +194,7 @@ const foodTypes = {
     potato: {
       name: "Potato",
       iconUrl: "potato",
+      subtypes: ["It's a potato, y'all."],
       pairingArray: [1, 1, 1, 1, 1, 1, 1, 1, 0],
     },
   },
