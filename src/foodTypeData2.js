@@ -139,7 +139,8 @@ const foodTypes = {
     blackpepper: {
       name: "Black Pepper",
       iconUrl: "blackpepper",
-      pairingArray: [2, 1, 0, 0, 0, 0, 0, 0, 0],
+      subtypes: ["It's black pepper, y'all."],
+      pairingArray: [2, 1, 0, 0, 0, 0, 0, 0, 0]
     },
     redpepper: {
       name: "Red Pepper",
@@ -214,7 +215,8 @@ const foodTypes = {
     chocolateandcoffee: {
       name: "Chocolate & Coffee",
       iconUrl: "coffee",
-      pairingArray: [0, 0, 0, 0, 0, 0, 0, 0, 2],
+      subtypes: ["Come on, like you care about sub-types here..."],
+      pairingArray: [0, 0, 0, 0, 0, 0, 0, 0, 2]
     },
   },
 };
