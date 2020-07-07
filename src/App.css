@@ -155,12 +155,13 @@ h1, h2 {
   padding: 8px;
   color: white;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 15px;
   border: 1px solid white;
   background-repeat: no-repeat;
   background-position: 5px 50%;
   background-color: #50183d;
   background-size: 200px 50px;
+  overflow: hidden;
 }
 
 .bottle-select:active {
@@ -180,10 +181,6 @@ h1, h2 {
 .port {
   background-image: url("./assets/bottle-port-silhouette-white.png");
   background-size: 150px 50px;
-}
-
-.bottle-horizontal {
-  width: 200px;
 }
 
 .bottle-select h3 {
@@ -261,12 +258,9 @@ h1, h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgba(252, 216, 159, 1);
-  background: linear-gradient(
-    180deg,
-    rgba(80, 24, 61, 1) 0%,
-    rgba(252, 216, 159, 1) 100%
-  );
+  background: rgb(80,24,61);
+  background: linear-gradient(180deg, rgba(80,24,61,1) -50%, rgba(252,216,159,1) 100%);
+  
 }
 
 .menu-food h1 {
@@ -274,6 +268,7 @@ h1, h2 {
   color: #50183d;
   font-weight: 300;
   margin: 0;
+
 }
 
 .menu-food select {
@@ -462,7 +457,26 @@ h1, h2 {
 
 }
 
-
 .rec-link {
   font-weight: 700;
+}
+
+/* small mobile */
+@media only screen and (max-device-width: 480px) {
+  .bottle-select {
+    margin: 10px 5px;
+  }
+
+  .bottle-select {
+    margin: 10px 10px;
+    background-size: 120px 30px;
+  }
+  .bottle-select h3 {
+    font-size: 12px;
+    width: 120px;
+  }
+  .port {
+    background-size: 90px 40px;
+  }
+
 }

@@ -36,6 +36,8 @@ const MenuFood = ({ setWinner, setPhotoContainerClass }) => {
       //create empty result array
     let result = [0,0,0,0,0,0,0,0,0];
     //loop through each pairing factor
+    console.log("Here are the pairing factors:");
+    console.log(pairingFactors);
     for (let i = 0; i < pairingFactors.length; i++) {
       //loop through pairing factor's pairingarray
       for (let j = 0; j < pairingFactors[i].pairingArray.length; j++) {
