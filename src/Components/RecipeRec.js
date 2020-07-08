@@ -21,7 +21,7 @@ const RecipeRec = ({ recipeRec, factor1, factor2, selectionInfo }) => {
       //second case: one is a prep method, the other is an ingredient
     } else if (!preps.includes(factor1) && preps.includes(factor2)) {
       factor1withGrammar = "has " + factor1;
-      factor2withGrammar = " and has " + factor2 + ",";
+      factor2withGrammar = " and is " + factor2 + ",";
       //third case: same as second, but reversed.
     } else if (!preps.includes(factor2) && preps.includes(factor1)) {
       factor2withGrammar = " and has " + factor2 + ",";
@@ -29,6 +29,7 @@ const RecipeRec = ({ recipeRec, factor1, factor2, selectionInfo }) => {
       //fourth case: both are ingredients.
     } else {
       factor1withGrammar = "has " + factor1;
+      factor2withGrammar = " and has " + factor2;
     }
     console.log(recipeRec.hits[0])
     console.log("fac 1 w/ grammar = " + factor1withGrammar)
