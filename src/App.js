@@ -19,6 +19,7 @@ function App() {
   const [pairingFactor2, setPairingFactor2] = useState("");
   const [winner, setWinner] = useState({});
   const [photoContainerClass, setPhotoContainerClass] = useState("");
+  const API_KEY = process.env.REACT_APP_EDAMAM_API_KEY;
 
   //When the user selects a wine (in MenuWine), update SelectedWine (its name, a string) and SelectionInfo (an object with all its info).
   const handleWineSelect = (event) => {
@@ -89,7 +90,7 @@ function App() {
       }
 
       setRecipeUrl(
-        `https://api.edamam.com/search?q=${localPairFactor1NoSpace}%20AND%20${localPairFactor2NoSpace}&app_id=d9740b8f&app_key=ef3b8ea5fd0b0bffed8b9bc13e135c91`
+        `https://api.edamam.com/search?q=${localPairFactor1NoSpace}%20AND%20${localPairFactor2NoSpace}&app_id=d9740b8f&app_key=${API_KEY}`
       );
 
       //set pairing factor with the vanilla (including spaces) names.
