@@ -5,6 +5,12 @@ I've been enjoying Madeline Puckette and Justin Hammack's "Wine Folly: The Essen
 ## Status
 The project is live, hosted on Netlify [here](https://practical-morse-7e5ebc.netlify.app/).
 
+## Setup
+Node version 14.16.0
+`nvm use 14.16.0`
+`npm install`
+`npm start`
+
 ## Screenshots
 ![](src/assets/screenshot1.jpeg)![](src/assets/screenshot2.jpeg)![](src/assets/screenshot3.jpeg)
 
