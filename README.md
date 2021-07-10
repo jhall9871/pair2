@@ -5,11 +5,22 @@ I've been enjoying Madeline Puckette and Justin Hammack's "Wine Folly: The Essen
 ## Status
 The project is live, hosted on Netlify [here](https://practical-morse-7e5ebc.netlify.app/).
 
-## Setup
+### To Do
+- Make button animation more snappy (bezier?)
+- Sometimes the page changes faster than the button. Figure out best practices on this.
+- Hover state, focus state
+- Accessibility audit site-wide
+- Add ability to remove factors from /menufood
+- Reset dropdown menu after selection in /menufood
+- Come up with a new design system, fonts, etc.
+- Add footer nav to all pages (start over, back, share button?)
+## Setup & Deployment
 Node version 14.16.0
 `nvm use 14.16.0`
 `npm install`
 `npm start`
+
+Site is deployed automatically from the `master` branch on github by Netlify. Any merges to `master` will automatically deploy.
 
 ## Screenshots
 ![](src/assets/screenshot1.jpeg)![](src/assets/screenshot2.jpeg)![](src/assets/screenshot3.jpeg)
