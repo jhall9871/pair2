@@ -1,3 +1,11 @@
+:root {
+  --burgundy: #540B0E;
+  --red: #9E2A2B;
+  --gold: #e09F3E;
+  --yellow: #FFF3B0;
+  --green: #335C67;
+}
+
 .App {
   height: 100vh;
   display: flex;
