@@ -16,16 +16,16 @@
 
 a {
   text-decoration: none;
-  color: #50183d;
+  color: var(--burgundy);
 }
 
 h1, h2 {
   font-family: "Anton", sans-serif;
-  color: #50183d;
+  color: var(--burgundy);
 }
 
 .emphasis {
-  color: #50183d;
+  color: var(--burgundy);
   font-weight: 800;
 }
 
@@ -37,11 +37,11 @@ h1, h2 {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background: rgba(252, 216, 159, 1);
+  background: var(--burgundy);
   background: linear-gradient(
     180deg,
-    rgba(80, 24, 61, 1) 0%,
-    rgba(252, 216, 159, 1) 100%);
+    var(--burgundy) 0%,
+    var(--red) 100%);
 }
 
 .button {
@@ -49,7 +49,7 @@ h1, h2 {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background-color: #50183d;
+  background-color: var(--burgundy);
   width: 220px;
   margin: 0 auto 20px auto;
   height: 220px;
@@ -57,7 +57,7 @@ h1, h2 {
 }
 
 .continuebutton {
-  box-shadow: 5px 5px rgba(252, 216, 159, 1);
+  box-shadow: 5px 5px var(--yellow);
   transition: all .2s;
 }
 
@@ -91,11 +91,11 @@ h1, h2 {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background: rgba(80, 24, 61, 1);
+  background: var(--burgundy);
   background: linear-gradient(
     180deg,
-    rgba(80, 24, 61, 1) 0%,
-    rgba(252, 216, 159, 1) 100%
+    var(--burgundy) 0%,
+    var(--yellow) 100%
   );
 }
 
@@ -108,7 +108,7 @@ h1, h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 5px 5px #50183d;
+  box-shadow: 5px 5px var(--burgundy);
   transition: all .2s;
 }
 
@@ -141,11 +141,11 @@ h1, h2 {
   height: 100vh;
   width: 100vw;
   overflow: scroll;
-  background: rgba(80, 24, 61, 1);
+  background: var(--burgundy);
   background: linear-gradient(
     180deg,
-    rgba(80, 24, 61, 1) 0%,
-    rgba(252, 216, 159, 1) 100%
+    var(--burgundy) 0%,
+    var(--yellow) 100%
   );
 }
 
@@ -167,7 +167,7 @@ h1, h2 {
   border: 1px solid white;
   background-repeat: no-repeat;
   background-position: 5px 50%;
-  background-color: #50183d;
+  background-color: var(--burgundy);
   background-size: 200px 50px;
   overflow: hidden;
 }
@@ -192,7 +192,7 @@ h1, h2 {
 }
 
 .bottle-select h3 {
-  color: #50183d;
+  color: var(--burgundy);
   text-align: left;
   flex-shrink: 0;
   width: 200px;
@@ -205,12 +205,12 @@ h1, h2 {
 
 .current-selection {
   font-style: italic;
-  color: #50183d;
+  color: var(--burgundy);
   margin: 2px;
 }
 
 .show-me-recipe {
-  background-color: #50183d;
+  background-color: var(--burgundy);
   color: white;
   width: 300px;
   height: 40px;
@@ -233,11 +233,11 @@ h1, h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: rgba(252, 216, 159, 1);
+  background: var(--yellow);
   background: linear-gradient(
     180deg,
-    rgba(80, 24, 61, 1) 0%,
-    rgba(252, 216, 159, 1) 100%
+    var(--burgundy) 0%,
+    var(--yellow) 100%
   );
 }
 
@@ -273,13 +273,13 @@ h1, h2 {
 
 .menu-food h1 {
   font-family: "Anton", sans-serif;
-  color: #50183d;
+  color: var(--burgundy);
   font-weight: 300;
   margin: 0;
 }
 
 .menu-food select {
-  background-color: #50183d; 
+  background-color: var(--burgundy); 
   border-radius: 10px;
   padding: 10px;
   color: white;
@@ -311,10 +311,10 @@ h1, h2 {
 
 .factor {
   text-align: center;
-  color: #50183d;
+  color: var(--burgundy);
   display: flex;
   flex-direction: column;
-  border: 3px solid #50183d;
+  border: 3px solid var(--burgundy);
   border-radius: 20px;
   margin: 5px;
   padding: 10px;
@@ -347,7 +347,7 @@ h1, h2 {
 }
 
 .no-selection {
-  color: #50183d;
+  color: var(--burgundy);
   font-weight: 700;
   margin-top: 0;
 }
@@ -358,12 +358,12 @@ h1, h2 {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background-color: #50183d;
+  background-color: var(--burgundy);
   width: 200px;
   height: 200px;
   margin: 10px auto 20px auto;
   margin-right: 10px;
-  box-shadow: 5px 5px rgba(252, 216, 159, 1);
+  box-shadow: 5px 5px var(--yellow);
   transition: all .2s;
 }
 
@@ -388,14 +388,14 @@ h1, h2 {
   display: flex;
   height: 100vh;
   width: 100vw;
-  color: #50183d;
+  color: var(--burgundy);
   flex-direction: column;
   justify-content: center;
-  background: rgba(252, 216, 159, 1);
+  background: var(--yellow);
   background: linear-gradient(
     180deg,
-    rgba(80, 24, 61, 1) 0%,
-    rgba(252, 216, 159, 1) 100%);
+    var(--burgundy) 0%,
+    var(--yellow) 100%);
 }
 
 .result-container {
@@ -407,7 +407,7 @@ h1, h2 {
 .rec-link {
   margin: 10%;
   display: block;
-  color: #50183d;
+  color: var(--burgundy);
 }
 
 .boldred, .mediumred, .lightred, .richwhite, .lightwhite, .rose, .sparkling, .sweetwhite, .dessert {
