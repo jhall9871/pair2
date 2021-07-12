@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import foodTypes from "../foodTypeData2";
 import wineTypeData from "../wineTypeData";
+import FactorCard from "./FactorCard";
 import WineRec from "./WineRec";
 
 const MenuFood = ({ setWinner, setPhotoContainerClass }) => {
@@ -70,18 +71,6 @@ const MenuFood = ({ setWinner, setPhotoContainerClass }) => {
     //also set an additional state which will be used to call the correct image later
     setPhotoContainerClass(wineTypeArray[winningIndex]);
   };
-
-  //change the layout depending on the number of factors
-  let displayStyle = "";
-  if (pairingFactors.length <= 1) {
-    displayStyle = "factors-1";
-  } else if (pairingFactors.length === 2) {
-    displayStyle = "factors-2";
-  } else if (pairingFactors.length === 3) {
-    displayStyle = "factors-3";
-  } else if (pairingFactors.length === 4) {
-    displayStyle = "factors-4";
-  }
 
   return (
     <div className="menu-food">
@@ -168,22 +157,10 @@ const MenuFood = ({ setWinner, setPhotoContainerClass }) => {
           </optgroup>
         </select>
       </form>
-      <h2>Selected factors:</h2>
-      <div className={displayStyle}>
+      <div className="factors">
         {pairingFactors[0] ? (
           pairingFactors.map((object, index) => (
-            <div className="factor" key={index}>
-              <div className="factor-image-container"></div>
-              <h3>{object.name}</h3>
-              <ul>
-                {preps.indexOf(object.name) < 0
-                  ? object.subtypes.map((item, index) => (
-                      <li key={index}>{item}</li>
-                    ))
-                  : ""}
-              </ul>
-              <button className="remove-ingredient" name={index} onClick={handleRemove}>X</button>
-            </div>
+            <FactorCard object={object} index={index} handleRemove={handleRemove} preps={preps}/>
           ))
         ) : (
           <p className="no-selection">Please select something.</p>

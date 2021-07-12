@@ -286,70 +286,65 @@ h1, h2 {
   margin-top: 20px;
 }
 
-.factors-1 {
-  width: 60vw;
-  max-width: 300px;
+.factors {
+  width: 90vw;
   margin: 10px 10px;
 }
 
-.factors-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.factors-3 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-}
-
-.factors-4 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-}
-
 .factor {
-  text-align: center;
-  color: var(--burgundy);
+  color: white;
+  background: var(--burgundy);
   display: flex;
-  flex-direction: column;
-  border: 3px solid var(--burgundy);
-  border-radius: 20px;
+  position: relative;
+  border: 2px solid white;
+  border-radius: 54px;
   margin: 5px;
   padding: 10px;
+}
+
+.factor-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 6px;
 }
 
 .factor h3 {
   margin: 0;
   font-family: "Anton", sans-serif;
   font-size: 24px;
+  text-align: left;
 }
 
 .factor img {
-  height: 150px;
+  height: 60px;
 }
 .factor ul {
   margin: 0;
   list-style: none;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .factor ul li {
-  margin: 0 2%;
+  margin: 0 2% 0 0;
   font-style: italic;
+  font-family: "Anton", sans-serif;
+  font-size: 14px;
 }
 
 .remove-ingredient {
-  border: 3px solid var(--burgundy);
+  border: 2px solid white;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  
-  background: transparent;
-  color: var(--burgundy);
+  background: var(--red);
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  color: white;
+  font-family: "Anton", sans-serif;
+  font-size: 24px;
 }
 
 .menu-food ul {
