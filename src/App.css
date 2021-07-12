@@ -310,10 +310,8 @@ h1, h2 {
 }
 
 .factor {
-  text-align: center;
   color: var(--burgundy);
   display: flex;
-  flex-direction: column;
   border: 3px solid var(--burgundy);
   border-radius: 20px;
   margin: 5px;
@@ -327,7 +325,7 @@ h1, h2 {
 }
 
 .factor img {
-  height: 150px;
+  height: 100px;
 }
 .factor ul {
   margin: 0;
