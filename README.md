@@ -14,6 +14,7 @@ The project is live, hosted on Netlify [here](https://practical-morse-7e5ebc.net
 - Reset dropdown menu after selection in /menufood
 - Come up with a new design system, fonts, etc.
 - Add footer nav to all pages (start over, back, share button?)
+- Transitions
 ## Setup & Deployment
 Node version 14.16.0
 `nvm use 14.16.0`
