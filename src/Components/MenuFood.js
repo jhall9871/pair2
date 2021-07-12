@@ -18,8 +18,6 @@ const MenuFood = ({ setWinner, setPhotoContainerClass }) => {
     "dessert",
   ];
 
-  console.log(pairingFactors);
-
   //check if one of the factors is a prep method. if so, modify that pairing factor to include "is" for grammatical reasons later.
   const preps = [
     "Grilled or Barbecued",
@@ -40,7 +38,16 @@ const MenuFood = ({ setWinner, setPhotoContainerClass }) => {
       // console.log(foodTypes[type][subType]);//works
       setPairingFactors([...pairingFactors, foodTypes[type][subType]]);
     }
+    // Reset the dropdown menu after each selection
+    let dropDown = document.getElementById("foodSelector");
+    dropDown.selectedIndex = 0;
   };
+
+  const handleRemove = (event) => {
+    let newPairingFactors = [...pairingFactors];
+    newPairingFactors.splice(event.target.name, 1);
+    setPairingFactors(newPairingFactors);
+  }
 
   //when Pair! is clicked, calculate the winning wine.
   const handlePairClick = () => {
@@ -81,7 +88,7 @@ const MenuFood = ({ setWinner, setPhotoContainerClass }) => {
       <h1>Choose 1-3 ingredients</h1>
       <h1>and 0-1 prep method.</h1>
       <form>
-        <select onChange={handleSelect}>
+        <select id="foodSelector" onChange={handleSelect}>
           <option value="" selected disabled hidden>
             Choose:
           </option>
@@ -175,6 +182,7 @@ const MenuFood = ({ setWinner, setPhotoContainerClass }) => {
                     ))
                   : ""}
               </ul>
+              <button className="remove-ingredient" name={index} onClick={handleRemove}>X</button>
             </div>
           ))
         ) : (
