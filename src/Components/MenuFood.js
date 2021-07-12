@@ -157,7 +157,6 @@ const MenuFood = ({ setWinner, setPhotoContainerClass }) => {
           </optgroup>
         </select>
       </form>
-      <h2>Selected factors:</h2>
       <div className="factors">
         {pairingFactors[0] ? (
           pairingFactors.map((object, index) => (

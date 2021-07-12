@@ -302,10 +302,18 @@ h1, h2 {
   padding: 10px;
 }
 
+.factor-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 6px;
+}
+
 .factor h3 {
   margin: 0;
   font-family: "Anton", sans-serif;
   font-size: 24px;
+  text-align: left;
 }
 
 .factor img {
@@ -316,14 +324,13 @@ h1, h2 {
   list-style: none;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .factor ul li {
-  margin: 0 2%;
+  margin: 0 2% 0 0;
   font-style: italic;
   font-family: "Anton", sans-serif;
-
+  font-size: 14px;
 }
 
 .remove-ingredient {
@@ -335,7 +342,9 @@ h1, h2 {
   position: absolute;
   right: -10px;
   top: -10px;
-  color: var(--burgundy);
+  color: white;
+  font-family: "Anton", sans-serif;
+  font-size: 24px;
 }
 
 .menu-food ul {
