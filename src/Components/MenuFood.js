@@ -72,18 +72,6 @@ const MenuFood = ({ setWinner, setPhotoContainerClass }) => {
     setPhotoContainerClass(wineTypeArray[winningIndex]);
   };
 
-  //change the layout depending on the number of factors
-  let displayStyle = "";
-  if (pairingFactors.length <= 1) {
-    displayStyle = "factors-1";
-  } else if (pairingFactors.length === 2) {
-    displayStyle = "factors-2";
-  } else if (pairingFactors.length === 3) {
-    displayStyle = "factors-3";
-  } else if (pairingFactors.length === 4) {
-    displayStyle = "factors-4";
-  }
-
   return (
     <div className="menu-food">
       <h1>Choose 1-3 ingredients</h1>
@@ -170,7 +158,7 @@ const MenuFood = ({ setWinner, setPhotoContainerClass }) => {
         </select>
       </form>
       <h2>Selected factors:</h2>
-      <div className={displayStyle}>
+      <div className="factors">
         {pairingFactors[0] ? (
           pairingFactors.map((object, index) => (
             <FactorCard object={object} index={index} handleRemove={handleRemove} preps={preps}/>
