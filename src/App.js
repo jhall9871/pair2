@@ -23,8 +23,10 @@ function App() {
 
   //When the user selects a wine (in MenuWine), update SelectedWine (its name, a string) and SelectionInfo (an object with all its info).
   const handleWineSelect = (event) => {
-    setSelectedWine(event.target.dataset.id);
-    setSelectionInfo(wineTypes[event.target.dataset.id]);
+    // console.log('value selected is ', event.target.value)
+    // console.log('wine is now', wineTypes[event.target.value])
+    // setSelectedWine(event.target.value);
+    setSelectionInfo(wineTypes[event.target.value]);
   };
 
   //listen for a change in selectedWine (in MenuWine), set the search url.
@@ -122,6 +124,7 @@ function App() {
             path="/menuwine"
             render={(routerProps) => (
               <MenuWine
+                wineTypes={wineTypes}
                 handleWineSelect={handleWineSelect}
                 handleShowMeClick={handleShowMeClick}
                 selectionInfo={selectionInfo}

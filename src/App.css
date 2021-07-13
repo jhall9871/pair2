@@ -12,6 +12,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-family: sans-serif;
 }
 
 a {
@@ -95,7 +96,7 @@ h1, h2 {
   background: linear-gradient(
     180deg,
     var(--burgundy) 0%,
-    var(--yellow) 100%
+    var(--red) 100%
   );
 }
 
@@ -108,7 +109,6 @@ h1, h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 5px 5px var(--burgundy);
   transition: all .2s;
 }
 
@@ -118,14 +118,15 @@ h1, h2 {
 }
 
 .mode-top {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--gold);
+  box-shadow: 5px 5px var(--burgundy);
+  color: black;
 }
 
 .mode-bottom {
-  background-color: rgba(80, 24, 61, 0.5);
-  border-radius: 50%;
+  background-color: var(--green);
+  box-shadow: 5px 5px var(--burgundy);
   color: white;
-  padding: 10px;
 }
 
 .mode-select h3 {
@@ -145,7 +146,7 @@ h1, h2 {
   background: linear-gradient(
     180deg,
     var(--burgundy) 0%,
-    var(--yellow) 100%
+    var(--red) 100%
   );
 }
 
@@ -159,54 +160,62 @@ h1, h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 10px 50px;
+  margin: 10px auto;
   padding: 8px;
   color: white;
   cursor: pointer;
-  border-radius: 15px;
-  border: 1px solid white;
-  background-repeat: no-repeat;
-  background-position: 5px 50%;
+  border-radius: 54px;
+  border: 2px solid white;
   background-color: var(--burgundy);
-  background-size: 200px 50px;
   overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 700px;
 }
 
-.bottle-select:active {
-  background-color: white;
+.bottle-select img {
+  display: block;
+  width: 100px;
+  pointer-events: none;
+  margin: 0 10px;
 }
 
-.bordeaux {
-  background-image: url("./assets/bottle-bordeaux-silhouette-white.png");
-}
 
-.burgundy {
-  background-image: url("./assets/bottle-burgundy-silhouette-white.png");
-}
-.sparkling1 {
-  background-image: url("./assets/bottle-sparkling-silhouette-white.png");
-}
-.port {
-  background-image: url("./assets/bottle-port-silhouette-white.png");
-  background-size: 150px 50px;
+
+.bottle-select:last-of-type img {
+  width: 150px;
 }
 
 .bottle-select h3 {
-  color: var(--burgundy);
+  font-family: "Anton", sans-serif;
   text-align: left;
   flex-shrink: 0;
   width: 200px;
+  position: absolute;
+  left: 35px;
+  color: var(--burgundy);
+  pointer-events: none;
 }
 
 .subtype-list {
   text-align: right;
   font-size: 12px;
+  pointer-events: none;
+  margin-right: 10px;
 }
 
-.current-selection {
-  font-style: italic;
-  color: var(--burgundy);
-  margin: 2px;
+@media screen and (min-width: 450px) {
+  .bottle-select img {
+    width: 200px;
+    margin: 0 15px;
+  }
+  .subtype-list {
+    margin-right: 15px
+  }
+}
+
+.selected {
+  background: var(--green);
 }
 
 .show-me-recipe {
@@ -266,14 +275,14 @@ h1, h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgb(80,24,61);
-  background: linear-gradient(180deg, rgba(80,24,61,1) -50%, rgba(252,216,159,1) 100%);
+  background: var(--burgundy);
+  background: linear-gradient(180deg, var(--burgundy) -50%, var(--red) 100%);
   
 }
 
 .menu-food h1 {
   font-family: "Anton", sans-serif;
-  color: var(--burgundy);
+  color: white;
   font-weight: 300;
   margin: 0;
 }
@@ -289,6 +298,7 @@ h1, h2 {
 .factors {
   width: 90vw;
   margin: 10px 10px;
+  max-width: 700px;
 }
 
 .factor {
@@ -307,30 +317,28 @@ h1, h2 {
   flex-direction: column;
   justify-content: center;
   margin-left: 6px;
+  margin-right: 15px;
 }
 
 .factor h3 {
   margin: 0;
   font-family: "Anton", sans-serif;
   font-size: 24px;
+  line-height: 24px;
   text-align: left;
 }
 
 .factor img {
   height: 60px;
 }
-.factor ul {
-  margin: 0;
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: flex-start;
-}
-.factor ul li {
-  margin: 0 2% 0 0;
-  font-style: italic;
-  font-family: "Anton", sans-serif;
+
+.factor p {
+  margin: 3px 0;
+  font-family: sans-serif;
   font-size: 14px;
+  line-height: 14px;
+  font-style: italic;
+  text-align: left;
 }
 
 .remove-ingredient {
@@ -355,6 +363,7 @@ h1, h2 {
   color: var(--burgundy);
   font-weight: 700;
   margin-top: 0;
+  font-family: sans-serif;
 }
 
 .pairbutton {

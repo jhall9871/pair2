@@ -1,17 +1,23 @@
-import React from "react";
+import React from 'react';
 
-const WineSelectRow = (props) => {
+const WineSelectRow = ({
+  handleWineSelect,
+  index,
+  name,
+  selected,
+  bottle,
+  subtypes,
+}) => {
   return (
-    <div
-      data-id={props.dataId}
-      className={`bottle-select ${props.bottle}`}
-      onClick={props.handleWineSelect}
+    <button
+      className={selected ? `bottle-select selected` : `bottle-select`}
+      value={index}
+      onClick={handleWineSelect}
     >
-      <h3 data-id={props.dataId}>{props.name}</h3>
-      <p className="subtype-list" data-id={props.dataId}>
-        {props.subtypes}
-      </p>
-    </div>
+      <img src={require(`../assets/${bottle}`)} alt={`${name} bottle`} />
+      <h3>{name}</h3>
+      <p className='subtype-list'>{subtypes}</p>
+    </button>
   );
 };
 

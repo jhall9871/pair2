@@ -9,13 +9,17 @@ const FactorCard = ({object, index, handleRemove, preps}) => {
               </div>
               <div className="factor-center">
               <h3>{object.name}</h3>
-              <ul>
+              <p>
                 {preps.indexOf(object.name) < 0
-                  ? object.subtypes.map((item, index) => (
-                      <li key={index}>{item}</li>
-                    ))
+                  ? object.subtypes.map((item, index) => {
+                    if (object.subtypes.length - 1 === index) {
+                      return item;
+                    } else { 
+                      return `${item}, `;
+                    }
+                  })
                   : ""}
-              </ul>
+              </p>
               </div>
               <button className="remove-ingredient" name={index} onClick={handleRemove}>X</button>
             </div>
