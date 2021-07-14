@@ -3,7 +3,7 @@
 I've been enjoying Madeline Puckette and Justin Hammack's "Wine Folly: The Essential Guide to Wine" for several months now. Among their beautiful and logical tools, they have created a [very useful poster](https://media.winefolly.com/AF-Poster.png) breaking down types of wine and the foods they pair with. I decided to create an app using this logic, so that a user could navigate to a food/wine pairing on their mobile device, without consulting a large poster.
 
 ## Status
-The project is live, hosted on Netlify [here](https://practical-morse-7e5ebc.netlify.app/).
+The project is live, hosted on Netlify [here](https://pair-wine.netlify.app/).
 
 ### To Do
 - Make button animation more snappy (bezier?)
