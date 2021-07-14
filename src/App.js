@@ -102,7 +102,7 @@ function App() {
     }
   }, [selectedWine]);
 
-  //When the user clicks "Show mea a recipe!" (in MenuWine),
+  //When the user clicks "Show me a a recipe!" (in MenuWine),
   const handleShowMeClick = () => {
     //actually make the api call
     const makeApiCall = async () => {
@@ -154,6 +154,7 @@ function App() {
             path="/menufood"
             render={(routerProps) => (
               <MenuFood
+                wineTypes={wineTypes}
                 setWinner={setWinner}
                 setPhotoContainerClass={setPhotoContainerClass}
                 {...routerProps} />
