@@ -169,7 +169,7 @@ h1, h2 {
   background-color: var(--burgundy);
   overflow: hidden;
   position: relative;
-  width: 100%;
+  width: 95%;
   max-width: 700px;
 }
 
@@ -179,8 +179,6 @@ h1, h2 {
   pointer-events: none;
   margin: 0 10px;
 }
-
-
 
 .bottle-select:last-of-type img {
   width: 150px;
@@ -200,7 +198,7 @@ h1, h2 {
 
 .subtype-list {
   text-align: right;
-  font-size: 12px;
+  font-size: 14px;
   pointer-events: none;
   margin-right: 10px;
 }
@@ -359,6 +357,7 @@ h1, h2 {
   color: white;
   font-family: "Anton", sans-serif;
   font-size: 24px;
+  cursor: pointer;
 }
 
 .menu-food ul {

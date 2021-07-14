@@ -29,7 +29,6 @@ function App() {
   useEffect(() => {
     //if a wine has been selected,
     if (selectionInfo.name) {
-      console.log('selected ', selectionInfo.name)
       //get wine pairing array
       let pairingArray = selectionInfo.pairingArray;
       //get array of food categories
