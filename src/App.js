@@ -21,20 +21,17 @@ function App() {
   const [photoContainerClass, setPhotoContainerClass] = useState("");
   const API_KEY = process.env.REACT_APP_EDAMAM_API_KEY;
 
-  //When the user selects a wine (in MenuWine), update SelectedWine (its name, a string) and SelectionInfo (an object with all its info).
+  //When the user selects a wine (in MenuWine), update SelectionInfo (an object with all the wine's info).
   const handleWineSelect = (event) => {
-    // console.log('value selected is ', event.target.value)
-    // console.log('wine is now', wineTypes[event.target.value])
-    // setSelectedWine(event.target.value);
     setSelectionInfo(wineTypes[event.target.value]);
   };
 
-  //listen for a change in selectedWine (in MenuWine), set the search url.
+  //listen for a change in selectionInfo (in MenuWine), set the search url.
   useEffect(() => {
     //if a wine has been selected,
-    if (selectedWine) {
+    if (selectionInfo.name) {
       //get wine pairing array
-      let pairingArray = wineTypes[selectedWine].pairingArray;
+      let pairingArray = selectionInfo.pairingArray;
       //get array of food categories
       let foodTypeArray = Object.keys(foodTypes);
       //create array of arrays of food subcategories
@@ -94,13 +91,13 @@ function App() {
       setRecipeUrl(
         `https://api.edamam.com/search?q=${localPairFactor1NoSpace}%20AND%20${localPairFactor2NoSpace}&app_id=d9740b8f&app_key=${API_KEY}`
       );
-
+        console.log('recipe url is ', recipeUrl);
       //set pairing factor with the vanilla (including spaces) names.
       setPairingFactor1(localPairFactor1);
       setPairingFactor2(localPairFactor2);
   
     }
-  }, [selectedWine]);
+  }, [selectionInfo]);
 
   //When the user clicks "Show me a a recipe!" (in MenuWine),
   const handleShowMeClick = () => {
