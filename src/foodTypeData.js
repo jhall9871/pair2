@@ -39,9 +39,9 @@ const foodTypes = {
   },
   preparation: {
     grilled: [2, 1, 1, 0, 0, 0, 1, 1, 0],
-    barbecued: [2, 1, 1, 0, 0, 0, 1, 1, 0],
+    // barbecued: [2, 1, 1, 0, 0, 0, 1, 1, 0], //grilled & barbecued are one and the same on the chart
     sauteed: [0, 0, 2, 1, 1, 1, 1, 0, 0],
-    fried: [0, 0, 2, 1, 1, 1, 1, 0, 0],
+    // fried: [0, 0, 2, 1, 1, 1, 1, 0, 0], //same with sauteed and fried
     smoked: [1, 2, 1, 1, 0, 0, 1, 0, 1],
     roasted: [2, 1, 1, 1, 0, 0, 0, 1, 0],
     steamed: [0, 0, 0, 0, 1, 2, 1, 1, 0],

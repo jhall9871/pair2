@@ -11,7 +11,6 @@ import foodTypes from "./foodTypeData";
 import "./App.css";
 
 function App() {
-  const [selectedWine, setSelectedWine] = useState(""); //the wine the user selects
   const [selectionInfo, setSelectionInfo] = useState({}); //the whole object corresponding to that wine
   const [recipeUrl, setRecipeUrl] = useState("");
   const [recipeRec, setRecipeRec] = useState(""); //the recipe(s) we'll recommend
@@ -30,6 +29,7 @@ function App() {
   useEffect(() => {
     //if a wine has been selected,
     if (selectionInfo.name) {
+      console.log('selected ', selectionInfo.name)
       //get wine pairing array
       let pairingArray = selectionInfo.pairingArray;
       //get array of food categories
@@ -41,10 +41,11 @@ function App() {
       });
       //flatten the array of arrays into one big array
       let flatArray = foodSubtypeArray.flat();
+      console.log('flat array =', flatArray)
       //create an array with only foods with a value of "2" from pairing array (great pairs). for now, we're being more general, so "pork" rather than "roast, tenderloin" etc.
       let masterArray = [];
       //sparkling and rose wines only have one 2 in their array, so in their case, we'll allow 1s.
-      if (selectedWine === "sparkling" || selectedWine === "rose") {
+      if (selectionInfo.name === "Sparkling" || selectionInfo.name === "Rosé") {
         for (let i = 0; i < flatArray.length; i++) {
           if (pairingArray[i] >= 1) {
             masterArray.push(flatArray[i]);
@@ -58,6 +59,7 @@ function App() {
           }
         }
       }
+      console.log('master array = ', masterArray);
       // select two random indices from the master array. One from each half of the array. This way you don't get two kinds of meat, or two prep methods.
       let num1 = Math.floor(Math.random() * (masterArray.length / 2));
       let num2 = Math.floor(
