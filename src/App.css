@@ -26,7 +26,7 @@ h1, h2 {
 }
 
 .emphasis {
-  color: var(--burgundy);
+  color: var(--yellow);
   font-weight: 800;
 }
 
@@ -175,7 +175,7 @@ h1, h2 {
 
 .bottle-select img {
   display: block;
-  width: 100px;
+  width: 140px;
   pointer-events: none;
   margin: 0 10px;
 }
@@ -192,9 +192,10 @@ h1, h2 {
   flex-shrink: 0;
   width: 200px;
   position: absolute;
-  left: 35px;
+  left: 20px;
   color: var(--burgundy);
   pointer-events: none;
+  font-weight: 200;
 }
 
 .subtype-list {
@@ -212,10 +213,14 @@ h1, h2 {
   .subtype-list {
     margin-right: 15px
   }
+  .bottle-select h3 {
+    left: 35px;
+  }
 }
 
 .selected {
-  background: var(--green);
+  background: var(--gold);
+  color: black;
 }
 
 .show-me-recipe {
@@ -223,8 +228,8 @@ h1, h2 {
   color: white;
   width: 300px;
   height: 40px;
-  border-radius: 10px;
-  border: 1px solid white;
+  border-radius: 50px;
+  border: 2px solid white;
   margin: 10px auto;
   display: flex;
   justify-content: center;
@@ -289,7 +294,8 @@ h1, h2 {
 
 .menu-food select {
   background-color: var(--burgundy); 
-  border-radius: 10px;
+  border-radius: 50px;
+  border: 2px solid white;
   padding: 10px;
   color: white;
   margin-top: 20px;
@@ -360,7 +366,7 @@ h1, h2 {
 }
 
 .no-selection {
-  color: var(--burgundy);
+  color: var(--yellow);
   font-weight: 700;
   margin-top: 0;
   font-family: sans-serif;
@@ -409,29 +415,32 @@ h1, h2 {
   background: linear-gradient(
     180deg,
     var(--burgundy) 0%,
-    var(--yellow) 100%);
+    var(--red) 100%);
 }
 
 .result-container {
-  width: 70%;
   margin: 0 auto;
+}
+
+.positive-result-container {
+
 }
 
 .rec-description,
 .rec-link {
   margin: 10%;
   display: block;
-  color: var(--burgundy);
+  color: white;
 }
 
 .boldred, .mediumred, .lightred, .richwhite, .lightwhite, .rose, .sparkling, .sweetwhite, .dessert {
 
   background-size: cover;
   background-position: center;
-  border-radius: 20px;
-  border: 1px solid white;
-  height: 300px;
-  width: 300px;
+  border-radius: 50%;
+  border: 2px solid white;
+  height: 200px;
+  width: 200px;
   margin: 0 auto;
 }
 
@@ -481,24 +490,4 @@ h1, h2 {
 
 .rec-link {
   font-weight: 700;
-}
-
-/* small mobile */
-@media only screen and (max-device-width: 480px) {
-  .bottle-select {
-    margin: 10px 5px;
-  }
-
-  .bottle-select {
-    margin: 10px 10px;
-    background-size: 120px 30px;
-  }
-  .bottle-select h3 {
-    font-size: 12px;
-    width: 120px;
-  }
-  .port {
-    background-size: 90px 40px;
-  }
-
 }

@@ -10,10 +10,10 @@ The project is live, hosted on Netlify [here](https://pair-wine.netlify.app/).
 - Sometimes the page changes faster than the button. Figure out best practices on this.
 - Hover state, focus state
 - Accessibility audit site-wide
-- Add images to food pairing factors
 - Come up with a new design system, fonts, etc.
 - Add footer nav to all pages (start over, back, share button?)
 - Transitions
+- Serve images from a CDN or figure out another way to make them faster-loading.
 ## Setup & Deployment
 Node version 14.16.0
 `nvm use 14.16.0`
