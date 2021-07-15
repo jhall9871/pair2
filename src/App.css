@@ -171,6 +171,7 @@ h1, h2 {
   position: relative;
   width: 95%;
   max-width: 700px;
+  box-shadow: 4px 4px 8px black;
 }
 
 .bottle-select img {
@@ -249,14 +250,14 @@ h1, h2 {
   background: linear-gradient(
     180deg,
     var(--burgundy) 0%,
-    var(--yellow) 100%
+    var(--red) 100%
   );
 }
 
 .recipe-rec img {
   display: block;
   margin: 20px auto;
-  border-radius: 20px;
+  border-radius: 50%;
   border: 2px solid white;
 }
 
@@ -267,6 +268,11 @@ h1, h2 {
 .recipe-info-container {
   width: 80%;
   margin: 0 auto;
+  font-size: 1.2rem;
+}
+
+.recipe-info-container a {
+  color: var(--gold);
 }
 
 /* I have a recipe, help me find a wine! */
@@ -419,10 +425,6 @@ h1, h2 {
 
 .result-container {
   margin: 0 auto;
-}
-
-.positive-result-container {
-
 }
 
 .rec-description,
