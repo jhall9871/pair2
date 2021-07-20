@@ -51,7 +51,7 @@ const RecipeRec = ({ recipeRec, factor1, factor2, selectionInfo }) => {
             This recipe {factor1withGrammar} {factor2withGrammar}<br />which
             pair well with your {selectionInfo.name.toLowerCase()} wine.
           </p>
-          <Link to="/">Back to Home</Link>
+          <Link to="/" className="back-home">Start Over</Link>
         </div>
       </div>
     );
