@@ -11,7 +11,7 @@ const WineRec = ({ winner, photoContainerClass }) => {
           <div className={photoContainerClass} ></div>
             <p className="rec-description">Try a <span className="emphasis">{winner.name.toLowerCase()} wine</span> such as a <br />{winner.subtypes.slice(0, -1).join(", ") + ", or " + winner.subtypes.slice(-1) + "."}</p></div> : <p>No result yet.</p>
           }
-        <Link to="/"><div className="rec-link">Back to Home</div></Link>
+        <Link to="/" className="back-home">Start Over</Link>
         </div>
     </div>
   );

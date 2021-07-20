@@ -59,7 +59,7 @@ const RecipeRec = ({ recipeRec, factor1, factor2, selectionInfo }) => {
     return (
       <div className="recipe-rec">
         <p>Nothing yet.</p>
-        <Link to="/">Back to Home</Link>
+        <Link to="/" className="back-home">Start Over</Link>
       </div>
     );
   }

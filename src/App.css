@@ -320,6 +320,8 @@ h1, h2 {
   border-radius: 54px;
   margin: 5px;
   padding: 10px;
+  box-shadow: 4px 4px 8px black;
+
 }
 
 .factor-center {
@@ -489,6 +491,14 @@ h1, h2 {
 
 }
 
-.rec-link {
-  font-weight: 700;
+.back-home {
+  color: white;
+  background: var(--burgundy);
+  position: relative;
+  border: 2px solid white;
+  border-radius: 54px;
+  margin: 5px;
+  padding: 10px;
+  box-shadow: 4px 4px 8px black;
+  margin: 0 auto;
 }
