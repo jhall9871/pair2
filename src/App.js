@@ -177,10 +177,9 @@ function App() {
                 <li>Create-react-app</li>
                 <li>Edamam Recipe API</li>
                 <li>Font-Awesome</li>
+                <li>Love</li>
               </ul>
             </li>
-            <li></li>
-            <li></li>
           </ul>
           <button className="remove-ingredient" onClick={handleInfoClick}>X</button>
         </div>
