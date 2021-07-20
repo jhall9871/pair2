@@ -6,6 +6,8 @@ import MenuWine from "./Components/MenuWine";
 import MenuFood from "./Components/MenuFood";
 import RecipeRec from "./Components/RecipeRec";
 import WineRec from "./Components/WineRec";
+import FooterNav from "./Components/FooterNav";
+
 import wineTypes from "./wineTypeData";
 import foodTypes from "./foodTypeData";
 import "./App.css";
@@ -18,7 +20,13 @@ function App() {
   const [pairingFactor2, setPairingFactor2] = useState("");
   const [winner, setWinner] = useState({});
   const [photoContainerClass, setPhotoContainerClass] = useState("");
+  const [displayInfo, setDisplayInfo] = useState(false)
   const API_KEY = process.env.REACT_APP_EDAMAM_API_KEY;
+
+  //Display the info modal on click
+  const handleInfoClick = () => {
+    setDisplayInfo(!displayInfo);
+  }
 
   //When the user selects a wine (in MenuWine), update SelectionInfo (an object with all the wine's info).
   const handleWineSelect = (event) => {
@@ -114,7 +122,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="main">
+      <main>
         <Switch>
           <Route exact path="/" component={Welcome} />
           <Route path="/modeselect" component={ModeSelect} />
@@ -159,7 +167,25 @@ function App() {
             )}
           />
         </Switch>
-      </div>
+        <div className="info-modal" style={displayInfo ? {display: 'block'} : {display: 'none'}}>
+          <h2>Pair: a Food and Wine Pairing App</h2>
+          <ul style={{textAlign: 'left'}}>
+            <li>Logic based on <a href="https://media.winefolly.com/AF-Poster.png" target="_blank">this very useful poster</a> from Madeline Puckette and Justin Hammack's "Wine Folly"</li>
+            <li>Bottle logo based on image by <a href="https://creativecommons.org/licenses/by-sa/3.0">Nevit Dilmen, CC BY-SA 3.0</a>, via Wikimedia Commons</li>
+            <li>Built with:
+              <ul>
+                <li>Create-react-app</li>
+                <li>Edamam Recipe API</li>
+                <li>Font-Awesome</li>
+              </ul>
+            </li>
+            <li></li>
+            <li></li>
+          </ul>
+          <button className="remove-ingredient" onClick={handleInfoClick}>X</button>
+        </div>
+      </main>
+      <FooterNav handleInfoClick={handleInfoClick}/>
     </div>
   );
 }
