@@ -37,7 +37,7 @@ h1, h2 {
 }
 
 .welcome {
-  /* height: 100vh; */
+  height: 90vh;
   width: 100vw;
   font-family: "Anton", sans-serif;
   display: flex;
@@ -525,6 +525,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .info-modal {
