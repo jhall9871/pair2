@@ -71,8 +71,8 @@ const MenuFood = ({ wineTypes, setWinner, setPhotoContainerClass }) => {
       <h1>Choose 1-3 ingredients</h1>
       <h1>and 0-1 prep method.</h1>
       <form>
-        <select id='foodSelector' onChange={handleSelect}>
-          <option value='' selected disabled hidden>
+        <select id='foodSelector' onChange={handleSelect} defaultValue={''}>
+          <option value='' disabled hidden>
             Choose:
           </option>
           <optgroup label='Meat' id='meat'>
@@ -159,6 +159,7 @@ const MenuFood = ({ wineTypes, setWinner, setPhotoContainerClass }) => {
               index={index}
               handleRemove={handleRemove}
               preps={preps}
+              key={`factor${index}`}
             />
           ))
         ) : (
