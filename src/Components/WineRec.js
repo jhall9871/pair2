@@ -6,7 +6,7 @@ const WineRec = ({ winner, photoContainerClass }) => {
   return (
     <div className="wine-rec">
       <div className="result-container">
-        {winner.name ?
+        {winner?.name ?
           <div className="positive-result-container">
           <div className={photoContainerClass} ></div>
             <p className="rec-description">Try a <span className="emphasis">{winner.name.toLowerCase()} wine</span> such as a <br />{winner.subtypes.slice(0, -1).join(", ") + ", or " + winner.subtypes.slice(-1) + "."}</p></div> : <p>No result yet.</p>
