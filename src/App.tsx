@@ -15,13 +15,13 @@ import "./App.css";
 
 function App() {
   const [selectionInfo, setSelectionInfo] = useState<WineSubtype | null>(null);
-  const [recipeUrl, setRecipeUrl] = useState("");
-  const [recipeRec, setRecipeRec] = useState(""); //the recipe(s) we'll recommend
-  const [pairingFactor1, setPairingFactor1] = useState("");
-  const [pairingFactor2, setPairingFactor2] = useState("");
+  const [recipeUrl, setRecipeUrl] = useState<string>("");
+  const [recipeRec, setRecipeRec] = useState<string>(""); //the recipe(s) we'll recommend
+  const [pairingFactor1, setPairingFactor1] = useState<string>("");
+  const [pairingFactor2, setPairingFactor2] = useState<string>("");
   const [winner, setWinner] = useState<WineSubtype | null>(null);
-  const [photoContainerClass, setPhotoContainerClass] = useState("");
-  const [displayInfo, setDisplayInfo] = useState(false)
+  const [photoContainerClass, setPhotoContainerClass] = useState<string>("");
+  const [displayInfo, setDisplayInfo] = useState<boolean>(false)
   const API_KEY = process.env.REACT_APP_EDAMAM_API_KEY;
 
   //Display the info modal on click
