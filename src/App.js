@@ -9,7 +9,7 @@ import WineRec from "./Components/WineRec";
 import FooterNav from "./Components/FooterNav";
 
 import wineTypes from "./wineTypeData";
-import foodTypes from "./foodTypeData";
+import foodTypes from "./foodTypeData2";
 import "./App.css";
 
 function App() {
