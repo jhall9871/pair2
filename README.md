@@ -100,7 +100,7 @@ Site is deployed automatically from the `master` branch on github by Netlify. An
       }
 
       setRecipeUrl(
-        `https://api.edamam.com/search?q=${localPairFactor1NoSpace}%20AND%20${localPairFactor2NoSpace}&app_id=d9740b8f&app_key=ef3b8ea5fd0b0bffed8b9bc13e135c91`
+        `https://api.edamam.com/search?q=${localPairFactor1NoSpace}%20AND%20${localPairFactor2NoSpace}&app_id=YOUR_APP_ID&app_key=YOUR_API_KEY`
       );
 
       //set pairing factor with the vanilla (including spaces) names.
