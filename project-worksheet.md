@@ -1,28 +1,37 @@
 # Pair App — Revamp Roadmap
 
-## Project 1: Quick Cleanup
-Small fixes that can ship as a single PR.
+## Project 1: Quick Cleanup ✅
+Small fixes that shipped as a single PR.
 
-- [ ] **Remove API key from README** — Line 103 of README.md contains a hardcoded Edamam API key in the code example. Replace with a placeholder.
-- [ ] **Fix manual URL encoding** — `App.js` manually replaces spaces with `%20` one at a time (and only the first space). Replace with `encodeURIComponent()`.
-- [ ] **Remove console.logs** — Scattered `console.log` calls in App.js, RecipeRec.js, WineRec.js.
+- [x] **Remove API key from README** — Replaced hardcoded Edamam API key with placeholder. (`cleanup/quick-fixes`)
+- [x] **Fix manual URL encoding** — Replaced manual space-to-%20 logic with `encodeURIComponent()`. (`cleanup/quick-fixes`)
+- [x] **Remove console.logs** — Removed 6 `console.log` calls from App.js, RecipeRec.js, WineRec.js. (`cleanup/quick-fixes`)
 
 ## Project 2: Modernization & Cleanup
 Upgrade tooling, consolidate files, and improve code quality.
 
-- [ ] **Dependency cleanup** — Upgrade react-scripts (CRA 3 → 5 or migrate to Vite), React 16 → 18, React Router v5 → v6, and pin Node version via `.nvmrc` or `engines` field.
-- [ ] **Consolidate duplicate data files** — `foodTypeData.js` and `foodTypeData2.js` have the same pairing logic but different shapes. Consolidate into one.
-- [ ] **Remove duplicate component** — `FooterNav.js` and `FooterNav.tsx` both exist. Remove the `.js` version.
+### Completed
+- [x] **Consolidate duplicate data files** — Removed `foodTypeData.js`, pointed App.js to `foodTypeData2.js`. (`cleanup/duplicate-files`)
+- [x] **Remove duplicate component** — Deleted `FooterNav.js`; `.tsx` version is canonical. (`cleanup/duplicate-files`)
+- [x] **Pin Node version** — Added `.nvmrc`. (`cleanup/duplicate-files`)
+- [x] **Migrate CRA → Vite** — Replaced `react-scripts` with Vite + `@vitejs/plugin-react`. Dev server starts in ~250ms, no more `NODE_OPTIONS=--openssl-legacy-provider` hack. `.nvmrc` now pins Node 22. (`cleanup/migrate-to-vite`)
+  - Renamed all `.js` components to `.jsx`
+  - Replaced `require()` with ES module imports / `import.meta.glob`
+  - Env var prefix changed from `REACT_APP_` to `VITE_` (update in Netlify: `REACT_APP_EDAMAM_API_KEY` → `VITE_EDAMAM_API_KEY`)
+  - Netlify build command: change to `npm run build` (remove `CI=false` prefix)
+  - Removed CRA boilerplate: serviceWorker, setupTests, App.test, logo.svg
+
+### Remaining
+- [ ] **React Router v6 upgrade** — Replace `<Switch>` with `<Routes>`, `render` props with `element`, `useHistory` with `useNavigate`. (Unblocked now that CRA/TypeScript 3.9 is gone.)
 - [ ] **Add API error handling** — The Edamam fetch in `handleShowMeClick` has no try/catch, no loading state, and no error UI.
 - [ ] **CSS organization** — All styles in one 540-line `App.css`. Migrate to CSS Modules or a scoped approach.
-- [ ] **React Router v6 upgrade** — Replace `<Switch>` with `<Routes>`, `render` props with `element`, `useHistory` with `useNavigate`.
 - [ ] **Image optimization** — 75 image assets bundled in `src/assets`. Move to a CDN or add an optimized image pipeline.
 
 ## Project 3: TypeScript Migration
-Convert all `.js` components and data files to TypeScript.
+Convert all `.jsx` components and data files to TypeScript.
 
 - [ ] Define interfaces for wine types, food types, and pairing data structures.
-- [ ] Convert all components from `.js` to `.tsx`.
+- [ ] Convert all components from `.jsx` to `.tsx`.
 - [ ] Convert data files to `.ts` with proper typing.
 - [ ] Add strict type checking for pairing array logic.
 

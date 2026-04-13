@@ -1,5 +1,7 @@
 import React from 'react';
 
+const images = import.meta.glob('../assets/*.png', { eager: true });
+
 const WineSelectRow = ({
   handleWineSelect,
   index,
@@ -14,7 +16,7 @@ const WineSelectRow = ({
       value={index}
       onClick={handleWineSelect}
     >
-      <img src={require(`../assets/${bottle}`)} alt={`${name} bottle`} />
+      <img src={images[`../assets/${bottle}`]?.default} alt={`${name} bottle`} />
       <h3>{name}</h3>
       <p className='subtype-list'>{subtypes}</p>
     </button>

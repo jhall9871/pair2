@@ -1,11 +1,13 @@
 import React from 'react';
 
+const images = import.meta.glob('../assets/*.png', { eager: true });
+
 const FactorCard = ({object, index, handleRemove, preps}) => {
-    console.log('object', object)
+    const imgSrc = images[`../assets/${object.iconUrl}.png`]?.default;
     return (
             <div className="factor" key={index}>
               <div className="factor-image-container">
-                <img className="food-icon" src={require(`../assets/${object.iconUrl}.png`)} alt={object.iconUrl} />
+                <img className="food-icon" src={imgSrc} alt={object.iconUrl} />
               </div>
               <div className="factor-center">
               <h3>{object.name}</h3>

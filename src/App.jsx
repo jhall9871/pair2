@@ -21,7 +21,7 @@ function App() {
   const [winner, setWinner] = useState({});
   const [photoContainerClass, setPhotoContainerClass] = useState("");
   const [displayInfo, setDisplayInfo] = useState(false)
-  const API_KEY = process.env.REACT_APP_EDAMAM_API_KEY;
+  const API_KEY = import.meta.env.VITE_EDAMAM_API_KEY;
 
   //Display the info modal on click
   const handleInfoClick = () => {
