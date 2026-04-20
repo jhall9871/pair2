@@ -1,10 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const RecipeRec = ({ recipeRec, factor1, factor2, selectionInfo }) => {
+const RecipeRec = ({ recipeRec, factor1, factor2, selectionInfo, isLoading, apiError }) => {
+  if (isLoading) {
+    return (
+      <div className="recipe-rec">
+        <p>Finding a recipe...</p>
+      </div>
+    );
+  }
+
+  if (apiError) {
+    return (
+      <div className="recipe-rec">
+        <p>{apiError}</p>
+        <Link to="/" className="back-home">Start Over</Link>
+      </div>
+    );
+  }
+
   let factor1withGrammar = "";
   let factor2withGrammar = "";
-  if (recipeRec.hits) {
+  if (recipeRec.results && recipeRec.results.length > 0) {
     //check if one of the factors is a prep method. if so, modify that pairing factor to include "is" for grammatical reasons later.
     const preps = [
       "grilled",
@@ -31,24 +48,28 @@ const RecipeRec = ({ recipeRec, factor1, factor2, selectionInfo }) => {
       factor1withGrammar = "has " + factor1;
       factor2withGrammar = " and has " + factor2;
     }
+    const recipe = recipeRec.results[0];
     return (
       <div className="recipe-rec">
         
         <div className="recipe-image-container">
           <img
-            src={recipeRec.hits[0].recipe.image}
+            src={recipe.image}
             alt="first recipe"
             key="0"
           />
         </div>
         
         <div className="recipe-info-container">
-        <a href={recipeRec.hits[0].recipe.url} target="_blank" rel="noopener noreferrer"><h3>{recipeRec.hits[0].recipe.label}</h3></a>
+        <a href={recipe.sourceUrl} target="_blank" rel="noopener noreferrer"><h3>{recipe.title}</h3></a>
           <p>
             This recipe {factor1withGrammar} {factor2withGrammar}<br />which
             pair well with your {selectionInfo.name.toLowerCase()} wine.
           </p>
           <Link to="/" className="back-home">Start Over</Link>
+          <p className="attribution">
+            <a href="https://spoonacular.com" target="_blank" rel="noopener noreferrer">Powered by Spoonacular</a>
+          </p>
         </div>
       </div>
     );
