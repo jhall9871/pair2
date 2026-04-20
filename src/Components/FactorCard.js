@@ -1,7 +1,6 @@
 import React from 'react';
 
 const FactorCard = ({object, index, handleRemove, preps}) => {
-    console.log('object', object)
     return (
             <div className="factor" key={index}>
               <div className="factor-image-container">

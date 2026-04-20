@@ -21,7 +21,9 @@ function App() {
   const [winner, setWinner] = useState({});
   const [photoContainerClass, setPhotoContainerClass] = useState("");
   const [displayInfo, setDisplayInfo] = useState(false)
-  const API_KEY = process.env.REACT_APP_EDAMAM_API_KEY;
+  const API_KEY = process.env.REACT_APP_SPOONACULAR_KEY;
+  const [isLoading, setIsLoading] = useState(false);
+  const [apiError, setApiError] = useState("");
 
   //Display the info modal on click
   const handleInfoClick = () => {
@@ -76,7 +78,7 @@ function App() {
       let localPairFactor2 = masterArray[num2];
 
       setRecipeUrl(
-        `https://api.edamam.com/search?q=${encodeURIComponent(localPairFactor1)}%20AND%20${encodeURIComponent(localPairFactor2)}&app_id=d9740b8f&app_key=${API_KEY}`
+        `https://api.spoonacular.com/recipes/complexSearch?query=${encodeURIComponent(localPairFactor1 + ' ' + localPairFactor2)}&addRecipeInformation=true&apiKey=${API_KEY}`
       );
       //set pairing factor with the vanilla (including spaces) names.
       setPairingFactor1(localPairFactor1);
@@ -87,13 +89,26 @@ function App() {
 
   //When the user clicks "Show me a a recipe!" (in MenuWine),
   const handleShowMeClick = () => {
-    //actually make the api call
+    setIsLoading(true);
+    setApiError("");
     const makeApiCall = async () => {
-      const response = await fetch(recipeUrl);
-      const json = await response.json();
-      setRecipeRec(json);
+      try {
+        const response = await fetch(recipeUrl);
+        if (!response.ok) {
+          throw new Error(`API error: ${response.status}`);
+        }
+        const json = await response.json();
+        if (!json.results || json.results.length === 0) {
+          throw new Error("No recipes found. Try a different wine!");
+        }
+        setRecipeRec(json);
+      } catch (err) {
+        setApiError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
     };
-    makeApiCall(); //no more than 5x per minute!
+    makeApiCall();
   };
 
   return (
@@ -122,6 +137,8 @@ function App() {
                 factor1={pairingFactor1}
                 factor2={pairingFactor2}
                 selectionInfo={selectionInfo}
+                isLoading={isLoading}
+                apiError={apiError}
                 {...routerProps}
               />
             )}
@@ -151,7 +168,7 @@ function App() {
             <li>Built with:
               <ul>
                 <li>Create-react-app</li>
-                <li>Edamam Recipe API</li>
+                <li>Spoonacular Recipe API</li>
                 <li>Font-Awesome</li>
                 <li>Love</li>
               </ul>

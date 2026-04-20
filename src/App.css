@@ -528,6 +528,16 @@ footer {
   cursor: pointer;
 }
 
+.attribution {
+  font-size: 0.75rem;
+  margin-top: 10px;
+  opacity: 0.7;
+}
+
+.attribution a {
+  color: inherit;
+}
+
 .info-modal {
   margin: auto;
   position: absolute;

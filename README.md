@@ -29,7 +29,7 @@ Site is deployed automatically from the `master` branch on github by Netlify. An
 - React
 - React Router
 - HTML, CSS, Javascript
-- Edamam Recipe Search API
+- Spoonacular Recipe API
 
 ## Features
 - Get a wine recommendation based on the ingredients of a recipe
@@ -100,7 +100,7 @@ Site is deployed automatically from the `master` branch on github by Netlify. An
       }
 
       setRecipeUrl(
-        `https://api.edamam.com/search?q=${localPairFactor1NoSpace}%20AND%20${localPairFactor2NoSpace}&app_id=YOUR_APP_ID&app_key=YOUR_API_KEY`
+        `https://api.spoonacular.com/recipes/complexSearch?query=${encodeURIComponent(localPairFactor1 + ' ' + localPairFactor2)}&addRecipeInformation=true&apiKey=YOUR_API_KEY`
       );
 
       //set pairing factor with the vanilla (including spaces) names.
