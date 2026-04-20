@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const WineRec = ({ winner, photoContainerClass }) => {
-    console.log(winner)
   return (
     <div className="wine-rec">
       <div className="result-container">

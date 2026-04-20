@@ -9,7 +9,7 @@ import WineRec from "./Components/WineRec";
 import FooterNav from "./Components/FooterNav";
 
 import wineTypes from "./wineTypeData";
-import foodTypes from "./foodTypeData";
+import foodTypes from "./foodTypeData2";
 import "./App.css";
 
 function App() {
@@ -48,7 +48,6 @@ function App() {
       });
       //flatten the array of arrays into one big array
       let flatArray = foodSubtypeArray.flat();
-      console.log('flat array =', flatArray)
       //create an array with only foods with a value of "2" from pairing array (great pairs). for now, we're being more general, so "pork" rather than "roast, tenderloin" etc.
       let masterArray = [];
       //sparkling and rose wines only have one 2 in their array, so in their case, we'll allow 1s.
@@ -66,7 +65,6 @@ function App() {
           }
         }
       }
-      console.log('master array = ', masterArray);
       // select two random indices from the master array. One from each half of the array. This way you don't get two kinds of meat, or two prep methods.
       let num1 = Math.floor(Math.random() * (masterArray.length / 2));
       let num2 = Math.floor(
@@ -77,30 +75,9 @@ function App() {
       let localPairFactor1 = masterArray[num1];
       let localPairFactor2 = masterArray[num2];
 
-      //look out for spaces! Can't have those in a url. Change them to "%20"
-      let localPairFactor1NoSpace = localPairFactor1;
-      let localPairFactor2NoSpace = localPairFactor2;
-
-      if (localPairFactor1NoSpace.includes(" ")) {
-        let index = localPairFactor1NoSpace.indexOf(" ");
-        localPairFactor1NoSpace =
-          localPairFactor1NoSpace.slice(0, index) +
-          "%20" +
-          localPairFactor1NoSpace.slice(index + 1);
-      }
-
-      if (localPairFactor2NoSpace.includes(" ")) {
-        let index = localPairFactor2NoSpace.indexOf(" ");
-        localPairFactor2NoSpace =
-          localPairFactor2NoSpace.slice(0, index) +
-          "%20" +
-          localPairFactor2NoSpace.slice(index + 1);
-      }
-
       setRecipeUrl(
-        `https://api.edamam.com/search?q=${localPairFactor1NoSpace}%20AND%20${localPairFactor2NoSpace}&app_id=d9740b8f&app_key=${API_KEY}`
+        `https://api.edamam.com/search?q=${encodeURIComponent(localPairFactor1)}%20AND%20${encodeURIComponent(localPairFactor2)}&app_id=d9740b8f&app_key=${API_KEY}`
       );
-        console.log('recipe url is ', recipeUrl);
       //set pairing factor with the vanilla (including spaces) names.
       setPairingFactor1(localPairFactor1);
       setPairingFactor2(localPairFactor2);
@@ -115,7 +92,6 @@ function App() {
       const response = await fetch(recipeUrl);
       const json = await response.json();
       setRecipeRec(json);
-      console.log(recipeRec);
     };
     makeApiCall(); //no more than 5x per minute!
   };
