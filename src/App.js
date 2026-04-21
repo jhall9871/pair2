@@ -43,28 +43,18 @@ function App() {
       let pairingArray = selectionInfo.pairingArray;
       //get array of food categories
       let foodTypeArray = Object.keys(foodTypes);
-      //create array of arrays of food subcategories
-      let foodSubtypeArray = [];
+      //create array of food item objects (with name, subtypes, pairingArray)
+      let foodItemArray = [];
       foodTypeArray.forEach((type) => {
-        foodSubtypeArray.push(Object.keys(foodTypes[type]));
+        foodItemArray.push(...Object.values(foodTypes[type]));
       });
-      //flatten the array of arrays into one big array
-      let flatArray = foodSubtypeArray.flat();
-      //create an array with only foods with a value of "2" from pairing array (great pairs). for now, we're being more general, so "pork" rather than "roast, tenderloin" etc.
+      //create an array with only foods with a value of "2" from pairing array (great pairs).
       let masterArray = [];
       //sparkling and rose wines only have one 2 in their array, so in their case, we'll allow 1s.
-      if (selectionInfo.name === "Sparkling" || selectionInfo.name === "Rosé") {
-        for (let i = 0; i < flatArray.length; i++) {
-          if (pairingArray[i] >= 1) {
-            masterArray.push(flatArray[i]);
-          }
-        }
-        //otherwise it's gotta be 2s.
-      } else {
-        for (let i = 0; i < flatArray.length; i++) {
-          if (pairingArray[i] === 2) {
-            masterArray.push(flatArray[i]);
-          }
+      const threshold = (selectionInfo.name === "Sparkling" || selectionInfo.name === "Rosé") ? 1 : 2;
+      for (let i = 0; i < foodItemArray.length; i++) {
+        if (pairingArray[i] >= threshold) {
+          masterArray.push(foodItemArray[i]);
         }
       }
       // select two random indices from the master array. One from each half of the array. This way you don't get two kinds of meat, or two prep methods.
@@ -74,15 +64,25 @@ function App() {
       );
 
       // make our selections based on these indices
-      let localPairFactor1 = masterArray[num1];
-      let localPairFactor2 = masterArray[num2];
+      let factor1 = masterArray[num1];
+      let factor2 = masterArray[num2];
 
-      setRecipeUrl(
-        `https://api.spoonacular.com/recipes/complexSearch?query=${encodeURIComponent(localPairFactor1 + ' ' + localPairFactor2)}&addRecipeInformation=true&apiKey=${API_KEY}`
-      );
-      //set pairing factor with the vanilla (including spaces) names.
-      setPairingFactor1(localPairFactor1);
-      setPairingFactor2(localPairFactor2);
+      // build API URL: use one factor as query, and if the other has subtypes, pick a random subtype as includeIngredients
+      let query = factor1.name;
+      let ingredient = "";
+      if (factor2.subtypes) {
+        ingredient = factor2.subtypes[Math.floor(Math.random() * factor2.subtypes.length)];
+      }
+
+      let url = `https://api.spoonacular.com/recipes/complexSearch?query=${encodeURIComponent(query)}&addRecipeInformation=true&number=10&apiKey=${API_KEY}`;
+      if (ingredient) {
+        url += `&includeIngredients=${encodeURIComponent(ingredient)}`;
+      }
+      setRecipeUrl(url);
+
+      //set pairing factors with the human-readable names.
+      setPairingFactor1(factor1.name);
+      setPairingFactor2(factor2.name);
   
     }
   }, [selectionInfo]);
